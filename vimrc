@@ -84,6 +84,7 @@ inoremap <F1> ESC
 nnoremap <F1> ESC
 vnoremap <F1> ESC
 
+" Set leader key to comma
 let mapleader = ","
 
 " Open a new vertical split, and move to that split.
@@ -95,8 +96,15 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-" autocmd filetype html,xml set listchars-=tab:>.
+" SuperTab Settings
+let g:SuperTabDefaultCompletionType = 'context'
 
+
+" autocmd filetype html,xml set listchars-=tab:>.
+" Turn on "intellisense" completion for php
+autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+
+" Save open windows when focus is lost.
 au FocusLost * :wa
 
 augroup mkd
