@@ -1,9 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/home/jborzilleri/Projects/mlp/src/php/src/main/php/assets'
-let g:netrw_dirhist_2='/etc/apache2/sites-available'
-let g:netrw_dirhist_3='/home/jborzilleri/Dropbox/config/irssi'
-let g:netrw_dirhist_4='/home/jborzilleri/Projects/agile/agile-acme/build'
-let g:netrw_dirhist_5='/home/jborzilleri/Projects/sliMVC/.git'
-let g:netrw_dirhist_6='/etc/apache2'
-let g:netrw_dirhist_7='/home/jborzilleri/Projects/agile/experian-branch-1.0/conf'
