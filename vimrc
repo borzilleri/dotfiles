@@ -98,6 +98,10 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+" Ant Settings
+nnoremap <F5> :call DoAntCmd(g:antOption.' -buildfile',g:buildFile, 'compile')<cr>
+nnoremap <F6> :ccl<cr>
+
 " SuperTab & OmniComplete Functionality
 let completeopt = "menu,longest"
 let g:SuperTabDefaultCompletionType = 'context'

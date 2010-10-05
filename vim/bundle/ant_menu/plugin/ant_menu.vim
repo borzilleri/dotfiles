@@ -359,10 +359,10 @@ call BuildTargetMenu()
 "map  ,t  :call SetBuildTarget()<cr>
 "map  ,z  :call FindAndRunTarget()<cr>
 
-map <leader>a :call DoAntCmd(g:antOption.' -buildfile',g:buildFile, 'compile')
+"map <leader>a :call DoAntCmd(g:antOption.' -buildfile',g:buildFile, 'compile')<cr>
 
 "build ant menu
-amenu  &Plugin.&ANT.\ &Build  :call DoAntCmd(g:antOption.' -buildfile',g:buildFile)<cr>
+amenu  &Plugin.&ANT.\ &Build  :call DoAntCmd(g:antOption.' -buildfile',g:buildFile)<cr>:ccl<cr>
 amenu  &Plugin.&ANT.\ &Find   :chdir %:p:h<cr> :call DoAntCmd(g:antOption.' -find',g:buildFile)<cr> :chdir -<cr>
 
 amenu &Plugin.&ANT.\ &Files.\ set\ build\ file  :call SetBuildFile()<cr>
