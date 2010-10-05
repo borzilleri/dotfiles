@@ -74,8 +74,7 @@ set ignorecase
 set smartcase 
 
 " Editing Behavior
-"set list
-" set listchars=trail:.,extends:#,nbsp:.
+set tags=tags;/
 set pastetoggle=<F2>
 
 " Remap some Keys
