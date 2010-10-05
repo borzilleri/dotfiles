@@ -75,69 +75,71 @@ set smartcase
 
 " Editing Behavior
 set tags=tags;/
-set pastetoggle=<F2>
-
-" Remap some Keys
-" Semicolon as colon key, no more shift!
-nnoremap ; :
-" F1 is NOT a help trigger anymore
-inoremap <F1> ESC
-nnoremap <F1> ESC
-vnoremap <F1> ESC
-
-" Set leader key to comma
-let mapleader = ","
-
-" Open a new vertical split, and move to that split.
-nnoremap <leader>w <C-w>v<C-w>l
-
-" Navigate Splits with CTRL-h/j/k/l
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-
-" Ant Settings
-nnoremap <F5> :call DoAntCmd(g:antOption.' -buildfile',g:buildFile, 'compile')<cr>
-nnoremap <F6> :ccl<cr>
 
 " SuperTab & OmniComplete Functionality
 let completeopt = "menu,longest"
 let g:SuperTabDefaultCompletionType = 'context'
-"let g:SuperTabCompletionContexts = ['s:Contexttext', 's:ContextDiscover']
-"let g:SuperTabContextTextomniPrecedence = ['&omnifunc', '&completefunc']
-"let g:SuperTabContextDiscoverDiscovery = 
-"			\ ['&completefunc:<c-x><c-u>', '&omnifunc:<c-x><c-o>']
-"<C-X><C-O>"
 
 " Taglist Settings
-nnoremap <silent> <F8> :TlistToggle<CR>
 let Tlist_Use_Right_Window = 1
 let Tlist_Exit_OnlyWindow = 1
 let Tlist_Inc_Winwidth = 0
 
 " NERDTree Settings
-nnoremap <silent> <F7> :NERDTreeToggle<CR>
 let NERDTreeChDirMode = 2
 
-" autocmd filetype html,xml set listchars-=tab:>.
-" Turn on "intellisense" completion for php
+" Key Bindings
+" Set leader key to comma
+let mapleader = ","
+" Semicolon as colon key, no more shift!
+nnoremap ; :
+" Open a new vertical split, and move to that split.
+nnoremap <leader>w <C-w>v<C-w>l
+" Navigate Splits with CTRL-h/j/k/l
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+" F1 is NOT a help trigger anymore
+inoremap <F1> ESC
+nnoremap <F1> ESC
+vnoremap <F1> ESC
+" F2 Toggles Paste option
+nnoremap <F2> :set invpaste paste?<cr>
+set pastetoggle=<F2>
+" Call an Ant target.
+nnoremap <F5> :call SetBuildTarget()<cr>
+" Close the QuickFix window
+nnoremap <silent> <F6> :ccl<cr>
+" Toggle the TagList
+nnoremap <silent> <F7> :TlistToggle<CR>
+" NERDTree Settings
+nnoremap <silent> <F8> :NERDTreeToggle<CR>
+
+" Auto-Commands
+" Enable php omnicompletion
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+" PHP Syntax Settings, highlight SQL in php, highlight PHP in HTML.
 let php_sql_query = 1
 let php_htmlInStrings = 1
 
 " Save open windows when focus is lost.
 au FocusLost * :wa
+
+" Highlight Lines that go over 80 Characters.
 au BufWinEnter * let w:m1=matchadd('Search', '\%<81v.\%>77v', -1)
 au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+
+" Change Directory to the file when editing it.
 "au BufEnter * lcd %:p:h
 
 augroup mkd
 	autocmd BufRead *.text  set ai formatoptions=tcroqn2 comments=n:>
 augroup END
 
+" Force certain filetypes.
 augroup filetype
 	autocmd BufNewFile,BufRead *.html set filetype=php
 	autocmd BufNewFile,BufRead *.json set filetype=javascript
-	autocmd BufNewFile,Bufread *.tpl  set filetype=smarty
+	"autocmd BufNewFile,Bufread *.tpl  set filetype=smarty
 augroup END
