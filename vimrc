@@ -59,6 +59,7 @@ set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 set shiftround
+set noexpandtab
 set nowrap "Do not wrap lines
 set smarttab "Tabs at the start of a line, spaces elsewhere
 
@@ -77,8 +78,9 @@ set smartcase
 set tags=tags;/
 
 " SuperTab & OmniComplete Functionality
-let completeopt = "menu,longest"
-let g:SuperTabDefaultCompletionType = 'context'
+let completeopt = "menu"
+"let g:SuperTabDefaultCompletionType = 'context'
+"let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
 
 " Taglist Settings
 let Tlist_Use_Right_Window = 1
@@ -110,15 +112,12 @@ set pastetoggle=<F2>
 " Call an Ant target.
 nnoremap <F5> :call SetBuildTarget()<cr>
 " Close the QuickFix window
-nnoremap <silent> <F6> :ccl<cr>
+nnoremap <silent> <F6> :ccl<cr>:pc<cr>
 " Toggle the TagList
 nnoremap <silent> <F7> :TlistToggle<CR>
 " NERDTree Settings
 nnoremap <silent> <F8> :NERDTreeToggle<CR>
 
-" Auto-Commands
-" Enable php omnicompletion
-autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 " PHP Syntax Settings, highlight SQL in php, highlight PHP in HTML.
 let php_sql_query = 1
 let php_htmlInStrings = 1
@@ -141,5 +140,15 @@ augroup END
 augroup filetype
 	autocmd BufNewFile,BufRead *.html set filetype=php
 	autocmd BufNewFile,BufRead *.json set filetype=javascript
-	"autocmd BufNewFile,Bufread *.tpl  set filetype=smarty
+	autocmd BufNewFile,Bufread *.tpl  set filetype=html
 augroup END
+
+" Set Omni Completion for various file types.
+augroup omni
+	autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+	autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+	autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+	autocmd FileType xml set omnifunc=xmlcommplete#CompleteTags
+	autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+augroup END
+
