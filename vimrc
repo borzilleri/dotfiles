@@ -1,3 +1,6 @@
+" Don't use vi-compatible mode
+set nocompatible
+
 " Ensure FileType detection is OFF before Pathogen does it's thing
 filetype off
 " Set the VimBall home, so Vim installs VBA files in the bundles dir.
@@ -11,7 +14,6 @@ call pathogen#helptags()
 filetype on
 filetype plugin indent on
 
-set nocompatible " Don't use vi-compatible mode
 set hidden
 set number
 set showmode
@@ -38,6 +40,13 @@ set wildignore=*.swp,*.bak
 set title
 "set winwidth=80
 
+" GUI Options
+if has('gui_running')
+	set lines=50
+	set columns=100
+	set gfn=Anonymous\ Pro\ 11
+	set guioptions-=T
+endif
 
 " Visual Cues
 set showmatch "show matching brackets
@@ -112,11 +121,17 @@ set pastetoggle=<F2>
 " Call an Ant target.
 nnoremap <F5> :call SetBuildTarget()<cr>
 " Close the QuickFix window
+inoremap <silent> <F6> :ccl<cr>:pc<cr>
 nnoremap <silent> <F6> :ccl<cr>:pc<cr>
+vnoremap <silent> <F6> :ccl<cr>:pc<cr>
 " Toggle the TagList
-nnoremap <silent> <F7> :TlistToggle<CR>
+inoremap <silent> <F7> :TlistToggle<cr>
+nnoremap <silent> <F7> :TlistToggle<cr>
+vnoremap <silent> <F7> :TlistToggle<cr>
 " NERDTree Settings
-nnoremap <silent> <F8> :NERDTreeToggle<CR>
+inoremap <silent> <F8> :NERDTreeToggle<cr>
+nnoremap <silent> <F8> :NERDTreeToggle<cr>
+vnoremap <silent> <F8> :NERDTreeToggle<cr>
 
 " PHP Syntax Settings, highlight SQL in php, highlight PHP in HTML.
 let php_sql_query = 1
