@@ -21,6 +21,8 @@ set nobackup
 set noswapfile
 
 " Vim UI
+set wildmenu
+set wildmode=list:longest
 set ruler "Show Col & Line number of the cursor
 set cmdheight=2 "Number of lines to use for command-line
 set number "Show line numbers
@@ -42,8 +44,6 @@ set title
 
 " GUI Options
 if has('gui_running')
-	set lines=50
-	set columns=100
 	set gfn=Anonymous\ Pro\ 11
 	set guioptions-=T
 endif
@@ -80,6 +80,7 @@ set foldopen-=search
 set foldopen-=undo
 
 " Searching
+set incsearch
 set ignorecase
 set smartcase 
 
@@ -88,13 +89,15 @@ set tags=tags;/
 
 " SuperTab & OmniComplete Functionality
 let completeopt = "menu"
-"let g:SuperTabDefaultCompletionType = 'context'
+let g:SuperTabDefaultCompletionType = 'context'
 "let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
 
 " Taglist Settings
 let Tlist_Use_Right_Window = 1
 let Tlist_Exit_OnlyWindow = 1
 let Tlist_Inc_Winwidth = 0
+let s:tlist_def_php_settings = 'php;c:class;d:constant;f:function;v:variable'
+
 
 " NERDTree Settings
 let NERDTreeChDirMode = 2
@@ -104,6 +107,8 @@ let NERDTreeChDirMode = 2
 let mapleader = ","
 " Semicolon as colon key, no more shift!
 nnoremap ; :
+" Fast editing of vimrc file.
+map <silent> <leader>e :e! ~/.vim_runtime/vimrc<cr>
 " Open a new vertical split, and move to that split.
 nnoremap <leader>w <C-w>v<C-w>l
 " Navigate Splits with CTRL-h/j/k/l
@@ -146,6 +151,8 @@ au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 
 " Change Directory to the file when editing it.
 "au BufEnter * lcd %:p:h
+
+autocmd! BufWritePost vimrc source ~/.vim_runtime/vimrc
 
 augroup mkd
 	autocmd BufRead *.text  set ai formatoptions=tcroqn2 comments=n:>
