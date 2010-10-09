@@ -13,3 +13,6 @@
 [submodule "vim/bundle/lusty"]
 	path = vim/bundle/lusty
 	url = http://github.com/sjbach/lusty.git
+[submodule "vim/bundle/phpcomplete/autoload"]
+	path = vim/bundle/phpcomplete/autoload
+	url = http://github.com/shawncplus/phpcomplete.vim.git
