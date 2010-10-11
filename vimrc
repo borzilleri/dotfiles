@@ -85,6 +85,7 @@ set tags=tags;/
 " SuperTab Settings
 let g:SuperTabDefaultCompletionType = "context"
 let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
+let g:SuperTabLeadingSpaceCompletion = 0
 
 " Taglist Settings
 let Tlist_Use_Right_Window = 1         "Taglist window on Right
