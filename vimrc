@@ -1,6 +1,7 @@
 " Don't use vi-compatible mode
-set nocompatible                       "Don't use vi-compatible mode.
-filetype off                           "Make sure filetype is off for pathogen
+set nocompatible
+" Turn off filetype detection for Pathogen.
+filetype off
 
 " Set VimBall home to bundles directory.
 "let g:vimball_home = expand("$HOME/.vim/bundle") ."/". 
@@ -8,8 +9,10 @@ filetype off                           "Make sure filetype is off for pathogen
 
 " Call Pathogen 
 call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()               "Generate Help Tags
-filetype plugin indent on              "Re-Enable filetype after pathogen
+call pathogen#helptags()
+
+" Re-Enable filetype detection after Pathogen is done
+filetype plugin indent on
 
 " General Behavior
 set hidden                             "Enable hidden buffers
@@ -100,20 +103,26 @@ let g:LustyExplorerSuppressRubyWarning = 1
 let g:LustyJugglerSuppressRubyWarning = 1
 
 " Key Bindings
-let mapleader = ","                    "Comma as leader key
-nnoremap ; :                           "Semicolon as colon (no more shift!)
-nnoremap <leader>w <c-w>v<c-w>l        "Open & Move to new vertical split
+" Comma as leader key.
+let mapleader = ","
+"Semicolon as colon (no more shift!)
+nnoremap ; :
+"Open & Move to new vertical split
+nnoremap <leader>w <c-w>v<c-w>l
 
-nnoremap <C-h> <C-w>h                  "Navigate splits with C-h/j/k/l
+"Navigate splits with C-h/j/k/l
+nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-inoremap <F1> ESC                      "F1 does NOT trigger help
+"F1 does NOT trigger help
+inoremap <F1> ESC
 nnoremap <F1> ESC
 vnoremap <F1> ESC
 
-set pastetoggle=<F2>                   "Toggle Paste Option with F2
+"F2 Toggles Pastemode
+set pastetoggle=<F2>
 nnoremap <F2> :set invpaste paste?<cr>
 
 " Close the QuickFix & Preview Windows
