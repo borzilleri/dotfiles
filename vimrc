@@ -47,7 +47,7 @@ let php_sql_query = 1                  "Highlight SQL in PHP Strings
 let php_htmlInStrings = 1              "Highlight PHP in HTML Strings
 
 if has('gui_running')                  "GUI Options
-	set gfn=Anonymous\ Pro\ 11           "Set GUI Font
+	set gfn=Anonymous\ Pro:h13           "Set GUI Font
 	set guioptions-=T                    "Remove the toolbar from the GUI
 endif
 
