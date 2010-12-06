@@ -40,7 +40,7 @@ set cursorline                         "Hightlight current line
 set showmatch                          "Show matching brackets
 set matchtime=5                        "Blink matching brackets for 5/10ths sec
 set scrolloff=20                       "Min Lines above/below cursor
-set title                              "Set the terminal title
+"set title                              "Set the terminal title
 syntax on                              "Enable Syntax Highlighting
 
 let php_sql_query = 1                  "Highlight SQL in PHP Strings
