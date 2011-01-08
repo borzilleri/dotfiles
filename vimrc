@@ -4,10 +4,10 @@ set nocompatible
 filetype off
 
 " Set VimBall home to bundles directory.
-"let g:vimball_home = expand("$HOME/.vim/bundle") ."/". 
+"let g:vimball_home = expand("$HOME/.vim/bundle") ."/".
 "			\ expand('%:t:s!\(\w\+\)\.vba\(\.\w\+\)\?!\1!')
 
-" Call Pathogen 
+" Call Pathogen
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
@@ -47,8 +47,12 @@ let php_sql_query = 1                  "Highlight SQL in PHP Strings
 let php_htmlInStrings = 1              "Highlight PHP in HTML Strings
 
 if has('gui_running')                  "GUI Options
-	set gfn=Anonymous\ Pro:h13           "Set GUI Font
-	set guioptions-=T                    "Remove the toolbar from the GUI
+	if has('gui_gtk2')
+		set gfn=Anonymous\ Pro\ 11
+	else
+		set gfn=Anonymous\ Pro:h13
+	endif
+	set guioptions-=Tm                   "Remove the toolbar from the GUI
 endif
 
 " Colors
@@ -78,7 +82,7 @@ set smarttab                           "Tabs to start a line, spaces elsewhere
 " Searching
 set incsearch
 set ignorecase
-set smartcase 
+set smartcase
 set hlsearch                           "Highlight search terms
 
 " Editing Behavior
@@ -124,6 +128,9 @@ vnoremap <F1> ESC
 "F2 Toggles Pastemode
 set pastetoggle=<F2>
 nnoremap <F2> :set invpaste paste?<cr>
+
+" Remove all trailing whitespace
+nnoremap <silent> <F5> :let _s=@\<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 " Close the QuickFix & Preview Windows
 nnoremap <silent> <expr> <F6> :ccl<cr>:pc<cr>
