@@ -52,7 +52,7 @@ if has('gui_running')                  "GUI Options
 	else
 		set gfn=Anonymous\ Pro:h13
 	endif
-	set guioptions-=Tm                   "Remove the toolbar from the GUI
+	set guioptions=
 endif
 
 " Colors
