@@ -139,6 +139,8 @@ nnoremap <silent> <F7> :TlistToggle<cr>
 " Toggle NERDTree
 nnoremap <silent> <F8> :NERDTreeToggle<cr>
 
+nnoremap <silent> \ :noh<cr>
+
 " Fast Editing of vimrc
 map <silent> <leader>e :e! ~/.vim_runtime/vimrc<cr>
 
