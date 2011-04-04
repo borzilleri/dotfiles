@@ -15,38 +15,63 @@ call pathogen#helptags()
 filetype plugin indent on
 
 " General Behavior
-set hidden                             "Enable hidden buffers
-set nobackup                           "Don't use backup files.
-set noswapfile                         "Don't use swap files.
-set history=1000                       "Lots of history
-set undolevels=1000                    "Lots of undo
-set wildignore=*.swp,*.bak             "Ignore these file patterns
+" Enable Hidden Buffers
+set hidden
+" Don't use backup files.
+set nobackup
+" Don't use swap files.
+set noswapfile
+" Command history
+set history=1000
+" Undo history
+set undolevels=1000
 
 " UI Options
+
+" Autocomplete commands
 set wildmenu
 set wildmode=list:longest
-set ruler                              "Show Cursor Column & Line Number
-set cmdheight=2                        "Command Line Height
-set number                             "Show line numbers
-set showmode                           "Show current mode
+" Ignore these patterns.
+set wildignore=*.swp,*.bak
+" Show cursor column & line number
+set ruler
+" Command line height
+set cmdheight=2
+" Show line numbers
+set number
+" Show current mode
+set showmode
+" Show keyboard input in command
 set showcmd
-set backspace=indent,eol,start         "Make backspace work like normal (?)
-set whichwrap+=<,>,h,l                 "Backspace across line boundaries
-set mouse=a                            "Enable mouse everywhere
-set shortmess=atI                      "Avoid 'press a key' prompt
-set visualbell                         "Use a screen flash alert
-set noerrorbells                       "Don't Make Noise
-set cursorline                         "Hightlight current line
-set showmatch                          "Show matching brackets
-set matchtime=5                        "Blink matching brackets for 5/10ths sec
-set scrolloff=20                       "Min Lines above/below cursor
-"set title                              "Set the terminal title
-syntax on                              "Enable Syntax Highlighting
+" Make backspace saner.
+set backspace=indent,eol,start
+" Backspace across line boundaries
+set whichwrap+=<,>,h,l
+" Enable mouse everywhere!
+set mouse=a
+" Avoid the "press a key" prompt
+set shortmess=atI
+" Use screen flash for alerts.
+set visualbell
+" Don't make noise.
+set noerrorbells
+" Highlight the current line
+set cursorline
+" Show matching brackets/braces/parens
+set showmatch
+" Blink matching brackets for 5/10ths
+set matchtime=5
+" Min lines above/below the cursor
+set scrolloff=10
+" Set the Terminal Title
+"set title
+" Enable Syntax Highlighting
+syntax on
 
-let php_sql_query = 1                  "Highlight SQL in PHP Strings
-let php_htmlInStrings = 1              "Highlight PHP in HTML Strings
-
-if has('gui_running')                  "GUI Options
+" GUI Options
+if has('gui_running')
+	" If we're running in GTK2, use Anonymous Pro, 11pt.
+	" Otherwise, use "h13", whatever that means.
 	if has('gui_gtk2')
 		set gfn=Anonymous\ Pro\ 11
 	else
@@ -56,8 +81,8 @@ if has('gui_running')                  "GUI Options
 endif
 
 " Colors
-set background=dark                    "Set Background Color
-colorscheme ir_black                   "Set Color Scheme
+set background=dark
+colorscheme ir_black
 
 " Formatting & Layout
 set autoindent
@@ -68,8 +93,9 @@ set softtabstop=2
 set shiftwidth=2
 set shiftround
 set noexpandtab
-set nowrap                             "Do not wrap lines
-set smarttab                           "Tabs to start a line, spaces elsewhere
+set nowrap
+" Tabs at the start of a line, spaces elsewhere.
+set smarttab
 
 " Folding
 " TODO: Fix This
@@ -83,7 +109,8 @@ set smarttab                           "Tabs to start a line, spaces elsewhere
 set incsearch
 set ignorecase
 set smartcase
-set hlsearch                           "Highlight search terms
+" Highlight search terms.
+set hlsearch
 
 " Editing Behavior
 set tags=tags;/
@@ -93,11 +120,6 @@ set tags=tags;/
 let g:SuperTabDefaultCompletionType = "context"
 let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
 let g:SuperTabLeadingSpaceCompletion = 0
-
-" Taglist Settings
-let Tlist_Use_Right_Window = 1         "Taglist window on Right
-let Tlist_Exit_OnlyWindow = 1          "Exit VIM if Taglist is the only window
-let Tlist_Inc_Winwidth = 0
 
 " NERDTree Settings
 let NERDTreeChDirMode = 2
@@ -134,8 +156,6 @@ nnoremap <silent> <F5> :let _s=@\<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 " Close the QuickFix & Preview Windows
 nnoremap <silent> <expr> <F6> :ccl<cr>:pc<cr>
-" Toggle the TagList
-nnoremap <silent> <F7> :TlistToggle<cr>
 " Toggle NERDTree
 nnoremap <silent> <F8> :NERDTreeToggle<cr>
 
@@ -144,26 +164,32 @@ nnoremap <silent> \ :noh<cr>
 " Fast Editing of vimrc
 map <silent> <leader>e :e! ~/.vim_runtime/vimrc<cr>
 
-" Call an Ant target.
-" TODO: Make this less dumb.
-"nnoremap <F5> :call SetBuildTarget()<cr>
+" Highlight SQL in PHP Strings.
+"let php_sql_query = 1
+" Highlight HTML in PHP strings.
+let php_htmlInStrings = 1
 
 " Auto Commands
 " Source vimrc as soon as it's written.
 autocmd! BufWritePost vimrc source ~/.vim_runtime/vimrc
+
 " Highlight Lines that go over 80 Characters.
 au BufWinEnter * let w:m1=matchadd('Search', '\%<81v.\%>77v', -1)
 au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
-au FocusLost * :wa                     "Save file when focus is lost.
-au BufEnter * lcd %:p:h                "CD to a file when editing it.
+" Save file when focus is lost.
+au FocusLost * :wa
+" CD to a file when editing it.
+au BufEnter * lcd %:p:h
 
-augroup filetype                       "Force certain filetypes
+" Force certain file types.
+augroup filetype
 "	autocmd BufNewFile,BufRead *.html set filetype=php
 	autocmd BufNewFile,BufRead *.json set filetype=javascript
 	autocmd BufNewFile,Bufread *.tpl  set filetype=html
 augroup END
 
-augroup omni                           "Set Omni Completion
+" Set omni completion
+augroup omni
 	autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 	autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 	autocmd FileType css set omnifunc=csscomplete#CompleteCSS
