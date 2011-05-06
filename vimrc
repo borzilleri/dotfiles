@@ -185,7 +185,7 @@ au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 " Save file when focus is lost.
 au FocusLost * :wa
 " CD to a file when editing it.
-au BufEnter * lcd %:p:h
+"au BufEnter * lcd %:p:h
 
 " Force certain file types.
 augroup filetype
