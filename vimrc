@@ -115,11 +115,7 @@ set hlsearch
 " Editing Behavior
 set tags=tags;/
 
-"let completeopt="menuone,longest"     "TODO: Do I need this?
-" SuperTab Settings
-let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
-let g:SuperTabLeadingSpaceCompletion = 0
+let completeopt="menuone,longest"     "TODO: Do I need this?
 
 " NERDTree Settings
 let NERDTreeChDirMode = 2
@@ -144,21 +140,18 @@ nnoremap <C-l> <C-w>l
 
 "F1 does NOT trigger help
 inoremap <F1> ESC
-nnoremap <F1> ESC
+" Toggle NERDTree
+nnoremap <silent> <F1> :NERDTreeToggle<cr>
 vnoremap <F1> ESC
 
-"F2 Toggles Pastemode
-set pastetoggle=<F2>
-nnoremap <F2> :set invpaste paste?<cr>
-
 " Remove all trailing whitespace
-nnoremap <silent> <F5> :let _s=@\<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+nnoremap <silent> <F3> :let _s=@\<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
-" Close the QuickFix & Preview Windows
-nnoremap <silent> <expr> <F6> :ccl<cr>:pc<cr>
-" Toggle NERDTree
-nnoremap <silent> <F8> :NERDTreeToggle<cr>
+"F4 Toggles Pastemode
+set pastetoggle=<F4>
+nnoremap <F4> :set invpaste paste?<cr>
 
+" Backslash turns off higlighted search results
 nnoremap <silent> \ :noh<cr>
 
 " Fast Editing of vimrc
@@ -168,6 +161,19 @@ map <silent> <leader>e :e! ~/.vim_runtime/vimrc<cr>
 "let php_sql_query = 1
 " Highlight HTML in PHP strings.
 let php_htmlInStrings = 1
+
+function! JavascriptFold()
+	setl foldmethod=syntax
+	setl foldlevelstart=1
+	syn region foldBraces start=/{/ end=/}/ transparent fold keepend extend
+
+	function! FoldText()
+		return substitute(getline(v:foldstart), '{.*', '{...}', '')
+	endfunction
+	setl foldtext=FoldText()
+endfunction
+au FileType javascript call JavascriptFold()
+au FileType javascript setl fen
 
 " Auto Commands
 " Source vimrc as soon as it's written.
