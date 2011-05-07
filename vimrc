@@ -138,9 +138,10 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-"F1 does NOT trigger help
+nnoremap <leader>t :NERDTreeToggle<cr>
+
 inoremap <F1> ESC
-" Toggle NERDTree
+"" Toggle NERDTree
 nnoremap <silent> <F1> :NERDTreeToggle<cr>
 vnoremap <F1> ESC
 
