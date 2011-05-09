@@ -26,7 +26,6 @@ set history=1000
 " Undo history
 set undolevels=1000
 
-" UI Options
 
 " Autocomplete commands
 set wildmenu
@@ -75,6 +74,8 @@ if has('gui_running')
 	if has('gui_gtk2')
 		set gfn=Anonymous\ Pro\ 11
 	else
+		" MacVim UI Options
+		set fuoptions=maxvert,maxhorz
 		set gfn=Anonymous\ Pro:h13
 	endif
 	set guioptions=
@@ -99,9 +100,9 @@ set smarttab
 
 " Folding
 " TODO: Fix This
-"set foldenable
-"set foldmethod=syntax
-"set foldlevel=100
+set foldenable
+set foldmethod=syntax
+set foldlevel=100
 "set foldopen-=search
 "set foldopen-=undo
 
@@ -115,7 +116,7 @@ set hlsearch
 " Editing Behavior
 set tags=tags;/
 
-let completeopt="menuone,longest"     "TODO: Do I need this?
+let completeopt="menuone,longest"
 
 " NERDTree Settings
 let NERDTreeChDirMode = 2
@@ -139,9 +140,7 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 nnoremap <leader>t :NERDTreeToggle<cr>
-
 inoremap <F1> ESC
-"" Toggle NERDTree
 nnoremap <silent> <F1> :NERDTreeToggle<cr>
 vnoremap <F1> ESC
 
@@ -179,6 +178,8 @@ au FileType javascript setl fen
 " Auto Commands
 " Source vimrc as soon as it's written.
 autocmd! BufWritePost vimrc source ~/.vim_runtime/vimrc
+
+autocmd FileType php noremap <c-L> :!php -l %<cr>
 
 " Highlight Lines that go over 80 Characters.
 au BufWinEnter * let w:m1=matchadd('Search', '\%<81v.\%>77v', -1)
