@@ -179,7 +179,7 @@ au FileType javascript setl fen
 " Source vimrc as soon as it's written.
 autocmd! BufWritePost vimrc source ~/.vim_runtime/vimrc
 
-autocmd FileType php noremap <c-L> :!php -l %<cr>
+"autocmd FileType php noremap <c-L> :!php -l %<cr>
 
 " Highlight Lines that go over 80 Characters.
 au BufWinEnter * let w:m1=matchadd('Search', '\%<81v.\%>77v', -1)
