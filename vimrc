@@ -138,6 +138,12 @@ nnoremap ; :
 "Open & Move to new vertical split
 nnoremap <leader>w <c-w>v<c-w>l
 
+" Map del/yank/put commands with leader
+" prefixes for global clipboard
+map <silent> <leader>p "+p
+map <silent> <leader>d "+d
+map <silent> <leader>y "+y
+
 "Navigate splits with C-h/j/k/l
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
