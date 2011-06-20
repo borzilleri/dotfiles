@@ -67,7 +67,7 @@ set scrolloff=10
 " Enable Syntax Highlighting
 syntax on
 " Disable syntax highlighting after the 100th column
-set synmaxcol=100
+set synmaxcol=120
 
 " GUI Options
 if has('gui_running')
