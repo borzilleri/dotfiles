@@ -22,12 +22,12 @@ shopt -s histappend # append to history file instead of overwrite
 
 
 # Source the .inputrc file if it exists
-[ -f $BASHRC_ROOT/inputrc ] && source $RC_ROOT/inputrc
+[ -f $BASHRC_ROOT/inputrc ] && source $BASHRC_ROOT/inputrc
 
-[ -f $BASHRC_ROOT/functions.bash ] && source $RC_ROOT/functions.bash;
+[ -f $BASHRC_ROOT/functions.bash ] && source $BASHRC_ROOT/functions.bash;
 
 # Include aliases bashrc file
-[ -f $BASHRC_ROOT/aliases.bash ] && source $RC_ROOT/aliases.bash;
+[ -f $BASHRC_ROOT/aliases.bash ] && source $BASHRC_ROOT/aliases.bash;
 
 # Include OS Specific bashrc file
 [ -f ~/.bashrc_os.bash ] && source ~/.bashrc_os.bash
