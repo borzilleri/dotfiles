@@ -1,0 +1,27 @@
+# rampant.io aliases
+Host durandal
+	HostName durandal.rampant.io
+	User jonathan
+Host tycho
+	HostName tycho.rampant.io
+	User jonathan
+Host rampant
+	HostName rampant.io
+	User jonathan
+
+
+# HOME Network aliases
+Host magi
+	HostName Magi.local
+	User jonathan
+Host wired-magi
+	HostName thewired.doesntexist.com
+	Port 52022
+	User jonathan
+Host nerv
+	HostName NERV.local
+	User jonathan
+Host wired-nerv
+	HostName thewired.doesntexist.com
+	User jonathan
+	Port 51022

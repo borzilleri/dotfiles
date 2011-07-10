@@ -1,0 +1,45 @@
+# .bashrc
+
+# History Control, ignore spaces & ignore dups
+HISTCONTROL=ignoreboth
+export HISTCONTROL;
+
+# Make less friendly for non-text inputs
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)";
+
+# Set & Export various environment variables
+export LANG="C"
+export PAGER="less"
+export EDITOR="vim"
+export BASH_COMPLETION_DIR=~/.bash_completion.d
+
+shopt -s cdspell # correct minor directory spelling errors in cd cmd.
+shopt -s checkwinsize # Refresh window size after each cmd
+shopt -s cmdhist # save all lines of multi-line cmds to same histry entry
+# shopt -s dirspell # correct minor dir spelling errors during completion
+shopt -s histappend # append to history file instead of overwrite
+
+
+# Source the .inputrc file if it exists
+[ -f ~/.inputrc ] && source ~/.inputrc;
+
+[ -f ~/.bashrc_functions ] && source ~/.bashrc_functions;
+
+# Include aliases bashrc file
+[ -f ~/.bashrc_aliases ] && source ~/.bashrc_aliases;
+
+# Include OS Specific bashrc file
+[ -f ~/.bashrc_os ] && source ~/.bashrc_os;
+
+[ -f $BASH_COMPLETION ] && source $BASH_COMPLETION;
+
+# Set up our prompt
+export PS1="\u@\H:\W${GREEN}\$(__git_ps1 ':%s')${RESET}\$ ";
+
+# Include Machine Specific bashrc file
+# NOTE: This should probably be a REAL file, not a symlink from Dropbox.
+[ -f ~/.bashrc_machine ] && source ~/.bashrc_machine;
+
+# Finally set additional PATHs and export it. We do this last, as we 
+# probably got some additional PATHs from the includes.
+export PATH="$HOME/bin:$PATH";

@@ -1,0 +1,6 @@
+.DS_Store
+*.tmproj
+*.bbprojectd
+.svn
+.pbxuser
+.modelv3
