@@ -1,5 +1,5 @@
 # .bashrc
-RC_ROOT=~/.dotfiles
+BASHRC_ROOT=~/.dotfiles/bash
 
 # History Control, ignore spaces & ignore dups
 HISTCONTROL=ignoreboth
@@ -12,7 +12,7 @@ export HISTCONTROL;
 export LANG="C"
 export PAGER="less"
 export EDITOR="vim"
-export BASH_COMPLETION_DIR=$RC_ROOT/bash_completion.d
+export BASH_COMPLETION_DIR=$BASHRC_ROOT/bash_completion.d
 
 shopt -s cdspell # correct minor directory spelling errors in cd cmd.
 shopt -s checkwinsize # Refresh window size after each cmd
@@ -22,12 +22,12 @@ shopt -s histappend # append to history file instead of overwrite
 
 
 # Source the .inputrc file if it exists
-[ -f $RC_ROOT/inputrc ] && source $RC_ROOT/inputrc
+[ -f $BASHRC_ROOT/inputrc ] && source $RC_ROOT/inputrc
 
-[ -f $RC_ROOT/functions.bash ] && source $RC_ROOT/functions.bash;
+[ -f $BASHRC_ROOT/functions.bash ] && source $RC_ROOT/functions.bash;
 
 # Include aliases bashrc file
-[ -f $RC_ROOT/aliases.bash ] && source $RC_ROOT/aliases.bash;
+[ -f $BASHRC_ROOT/aliases.bash ] && source $RC_ROOT/aliases.bash;
 
 # Include OS Specific bashrc file
 [ -f ~/.bashrc_os.bash ] && source ~/.bashrc_os.bash
