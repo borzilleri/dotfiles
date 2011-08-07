@@ -1,7 +1,7 @@
 # bashrc for OSX
 
-[ -n "$BASH_COMPLETION" ] || export BASH_COMPLETION=/usr/local/etc/bash_completion
-source $BASH_COMPLETION
+source `brew --prefix`/etc/bash_completion
+#[ -n "$BASH_COMPLETION" ] || export BASH_COMPLETION=/usr/local/etc/bash_completion
 
 alias l="ls -loGhF";
 alias cdopen="drutil tray eject";
