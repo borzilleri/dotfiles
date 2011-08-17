@@ -32,8 +32,6 @@ shopt -s histappend # append to history file instead of overwrite
 # Include OS Specific bashrc file
 [ -f ~/.bashrc_os.bash ] && source ~/.bashrc_os.bash
 
-#[ -f $BASH_COMPLETION ] && source $BASH_COMPLETION;
-
 # Set up our prompt
 export PS1="\u@\H:\W${GREEN}\$(__git_ps1 ':%s')${RESET}\$ ";
 
