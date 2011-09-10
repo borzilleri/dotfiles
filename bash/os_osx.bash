@@ -10,6 +10,8 @@ alias cdclose="drutil tray close";
 PATH="$PATH:/Developer/Tools"
 #PATH="$PATH:/usr/local/mysql/bin"
 
+export CC='gcc-4.2'
+
 logoutgui() {
 	osascript -e 'tell application "System Events" to log out'
 	builtin logout
