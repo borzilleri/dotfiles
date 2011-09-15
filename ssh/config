@@ -6,6 +6,11 @@ Host tycho
 	HostName tycho.rampant.io
 	User jonathan
 
+Host mcmap
+	Hostname tycho.rampant.io
+	User jonathan
+	identityfile /home/jonathan/.ssh/id_rsa_mcmap
+
 
 # HOME Network aliases
 Host nerv
