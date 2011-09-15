@@ -1,21 +1,28 @@
+ControlMaster auto
+Controlpath /tmp/ssh_mux_%h_%p_%r
+ControlPersist 2h
+GSSAPIAuthentication no
+
+
 # rampant.io aliases
 Host durandal
 	HostName durandal.rampant.io
 	User jonathan
+	ForwardAgent yes
 Host tycho
 	HostName tycho.rampant.io
 	User jonathan
-
+	ForwardAgent yes
 Host mcmap
 	Hostname tycho.rampant.io
 	User jonathan
 	identityfile /home/jonathan/.ssh/id_rsa_mcmap
 
-
 # HOME Network aliases
 Host nerv
 	HostName NERV.local
 	User jonathan
+	Ciphers arcfour
 Host wired-nerv
 	HostName thewired.doesntexist.com
 	User jonathan
