@@ -214,6 +214,7 @@ au FocusLost * :wa
 
 " Force certain file types.
 augroup filetype
+	autocmd BufNewFile,BufRead */ssh/config set filetype=sshconfig
 "	autocmd BufNewFile,BufRead *.html set filetype=php
 	autocmd BufNewFile,BufRead *.json set filetype=javascript
 	autocmd BufNewFile,Bufread *.tpl  set filetype=html
