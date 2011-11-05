@@ -9,9 +9,11 @@ export HISTCONTROL;
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)";
 
 # Set & Export various environment variables
-export LANG="C"
+export LANG="en_US.UTF-8"
+export LC_COLLATE="C"
 export PAGER="less"
 export EDITOR="vim"
+export LESSCHARSET="utf-8"
 #export BASH_COMPLETION_DIR=$BASHRC_ROOT/bash_completion.d
 
 shopt -s cdspell # correct minor directory spelling errors in cd cmd.
