@@ -67,7 +67,7 @@ set scrolloff=10
 " Enable Syntax Highlighting
 syntax on
 " Disable syntax highlighting after the 100th column
-set synmaxcol=120
+set synmaxcol=200
 
 " GUI Options
 if has('gui_running')
@@ -217,7 +217,7 @@ augroup filetype
 	autocmd BufNewFile,BufRead */ssh/config set filetype=sshconfig
 "	autocmd BufNewFile,BufRead *.html set filetype=php
 	autocmd BufNewFile,BufRead *.json set filetype=javascript
-	autocmd BufNewFile,Bufread *.tpl  set filetype=html
+	autocmd BufNewFile,BufRead *.tpl  set filetype=html
 augroup END
 
 " Set omni completion
