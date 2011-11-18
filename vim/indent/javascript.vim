@@ -4,10 +4,10 @@
 " Last Change:  2011-01-08
 " Version: 1.3.3
 
-setlocal tabstop=4
+"setlocal tabstop=4
 setlocal noexpandtab
-setlocal shiftwidth=4
-setlocal softtabstop=4
+"setlocal shiftwidth=4
+"setlocal softtabstop=4
 
 if exists('b:did_indent')
   finish
