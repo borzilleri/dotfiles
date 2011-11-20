@@ -30,6 +30,7 @@ set noswapfile
 set history=1000
 " Undo history
 set undolevels=1000
+set encoding=utf-8
 
 
 " Autocomplete commands
@@ -37,6 +38,12 @@ set wildmenu
 set wildmode=list:longest
 " Ignore these patterns.
 set wildignore=*.swp,*.bak
+set wildignore+=.hg,.git,.svn
+set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg
+set wildignore+=*.DS_Store
+set wildignore+=*.luac
+set wildignore+=*.pyc
+
 " Show cursor column & line number
 set ruler
 " Command line height
@@ -67,12 +74,25 @@ set showmatch
 set matchtime=5
 " Min lines above/below the cursor
 set scrolloff=10
+set sidescrolloff=10
 " Set the Terminal Title
 "set title
 " Enable Syntax Highlighting
 syntax on
 " Disable syntax highlighting after the 100th column
-set synmaxcol=120
+set synmaxcol=200
+
+set shell=/bin/bash
+" Show this character at the start of lines that have been wrapped
+set showbreak=↪
+" Put new windows to the right of the current one
+set splitright
+
+set autowrite
+set autoread
+
+" TODO: check this on OSX
+"set dictionary=/usr/share/dict/words
 
 " GUI Options
 if has('gui_running')
@@ -114,6 +134,7 @@ set noexpandtab
 set nowrap
 " Tabs at the start of a line, spaces elsewhere.
 set smarttab
+set formatoptions=croqn
 
 " Folding
 " TODO: Fix This
@@ -129,6 +150,8 @@ set ignorecase
 set smartcase
 " Highlight search terms.
 set hlsearch
+
+match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 " Gist Options
 let g:gist_detect_filetype = 1
@@ -154,6 +177,14 @@ let mapleader = ","
 nnoremap ; :
 "Open & Move to new vertical split
 nnoremap <leader>w <c-w>v<c-w>l
+
+nnoremap / /\v
+vnoremap / /\v
+" Global subsitutions by default
+set gdefault
+
+nnoremap <tab> %
+vnoremap <tab> %
 
 " Map del/yank/put commands with leader
 " prefixes for global clipboard
@@ -222,7 +253,7 @@ augroup filetype
 	autocmd BufNewFile,BufRead */ssh/config set filetype=sshconfig
 "	autocmd BufNewFile,BufRead *.html set filetype=php
 	autocmd BufNewFile,BufRead *.json set filetype=javascript
-	autocmd BufNewFile,Bufread *.tpl  set filetype=html
+	autocmd BufNewFile,BufRead *.tpl  set filetype=html
 augroup END
 
 " Set omni completion
