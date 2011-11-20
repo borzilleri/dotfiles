@@ -11,6 +11,11 @@ filetype off
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
+function SetColor(scheme, bg)
+	set background a:bg
+	colorscheme a:scheme
+endfunction
+
 " Re-Enable filetype detection after Pathogen is done
 filetype plugin indent on
 
@@ -78,7 +83,7 @@ if has('gui_running')
 	else
 		" MacVim UI Options
 		set fuoptions=maxvert,maxhorz
-		set gfn=Anonymous\ Pro:h13
+		set gfn=Anonymous\ Pro:h14
 	endif
 	set guioptions=
 endif
