@@ -1,4 +1,7 @@
 --type-set
 smarty=.tpl
 
+--type-add
+css=.scss
+
 
