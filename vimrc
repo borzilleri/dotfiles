@@ -14,6 +14,9 @@ call pathogen#helptags()
 " Re-Enable filetype detection after Pathogen is done
 filetype plugin indent on
 
+" make sure .tex files are "tex" not "plaintex"
+let g:tex_flavor='latex'
+
 " General Behavior
 " Enable Hidden Buffers
 set hidden
