@@ -11,11 +11,6 @@ filetype off
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
-function SetColor(scheme, bg)
-	set background a:bg
-	colorscheme a:scheme
-endfunction
-
 " Re-Enable filetype detection after Pathogen is done
 filetype plugin indent on
 
@@ -137,12 +132,14 @@ set smarttab
 set formatoptions=croqn
 
 " Folding
-" TODO: Fix This
-set foldenable
-set foldmethod=syntax
-set foldlevel=100
-"set foldopen-=search
-"set foldopen-=undo
+set foldlevelstart=0
+" Space toggles folds
+nnoremap <Space> za
+vnoremap <Space> za
+" zO recursively opens top level folds
+nnoremap zO zCzO
+" ,z focuses current fold
+nnoremap <leader>z zMzvzz
 
 " Searching
 set incsearch
@@ -221,19 +218,6 @@ map <silent> <leader>e :e! ~/.vim_runtime/vimrc<cr>
 " Highlight HTML in PHP strings.
 let php_htmlInStrings = 1
 
-function! JavascriptFold()
-	setl foldmethod=syntax
-	setl foldlevelstart=1
-	syn region foldBraces start=/{/ end=/}/ transparent fold keepend extend
-
-	function! FoldText()
-		return substitute(getline(v:foldstart), '{.*', '{...}', '')
-	endfunction
-	setl foldtext=FoldText()
-endfunction
-au FileType javascript call JavascriptFold()
-au FileType javascript setl fen
-
 " Auto Commands
 " Source vimrc as soon as it's written.
 autocmd! BufWritePost vimrc source ~/.vim_runtime/vimrc
@@ -263,4 +247,10 @@ augroup omni
 	autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 	autocmd FileType xml set omnifunc=xmlcommplete#CompleteTags
 	autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+augroup END
+
+augroup ft_js
+	au!
+	au FileType javascript setlocal foldmethod=marker
+	au FileType javascript setlocal foldmarker={,}
 augroup END
