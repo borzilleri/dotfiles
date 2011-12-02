@@ -14,6 +14,10 @@ call pathogen#helptags()
 " Re-Enable filetype detection after Pathogen is done
 filetype plugin indent on
 
+" make sure .tex files are "tex" not "plaintex"
+let g:tex_flavor='latex'
+let g:Tex_DefaultTargetFormat='pdf'
+
 " General Behavior
 " Enable Hidden Buffers
 set hidden
@@ -126,7 +130,8 @@ set softtabstop=2
 set shiftwidth=2
 set shiftround
 set noexpandtab
-set nowrap
+set wrap
+set textwidth=80
 " Tabs at the start of a line, spaces elsewhere.
 set smarttab
 set formatoptions=croqn
@@ -183,6 +188,9 @@ set gdefault
 nnoremap <tab> %
 vnoremap <tab> %
 
+noremap j gj
+noremap k gk
+
 " Map del/yank/put commands with leader
 " prefixes for global clipboard
 map <silent> <leader>p "+p
@@ -228,7 +236,7 @@ autocmd! BufWritePost vimrc source ~/.vim_runtime/vimrc
 au BufWinEnter * let w:m1=matchadd('Search', '\%<81v.\%>77v', -1)
 au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 " Save file when focus is lost.
-au FocusLost * :wa
+au FocusLost * silent! :wa
 " CD to a file when editing it.
 "au BufEnter * lcd %:p:h
 
