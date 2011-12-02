@@ -16,6 +16,7 @@ filetype plugin indent on
 
 " make sure .tex files are "tex" not "plaintex"
 let g:tex_flavor='latex'
+let g:Tex_DefaultTargetFormat='pdf'
 
 " General Behavior
 " Enable Hidden Buffers
@@ -129,7 +130,8 @@ set softtabstop=2
 set shiftwidth=2
 set shiftround
 set noexpandtab
-set nowrap
+set wrap
+set textwidth=80
 " Tabs at the start of a line, spaces elsewhere.
 set smarttab
 set formatoptions=croqn
@@ -183,6 +185,9 @@ set gdefault
 
 nnoremap <tab> %
 vnoremap <tab> %
+
+noremap j gj
+noremap k gk
 
 " Map del/yank/put commands with leader
 " prefixes for global clipboard
