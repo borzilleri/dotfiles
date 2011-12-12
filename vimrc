@@ -172,6 +172,17 @@ let NERDTreeChDirMode = 2
 let g:LustyExplorerSuppressRubyWarning = 1
 let g:LustyJugglerSuppressRubyWarning = 1
 
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>
+
+imap jj <Esc>
+
 " Key Bindings
 " Comma as leader key.
 let mapleader = ","
@@ -203,7 +214,8 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-nnoremap <leader>t :NERDTreeToggle<cr>
+map <leader>f :CommandT<cr>
+"nnoremap <leader>t :NERDTreeToggle<cr>
 inoremap <F1> ESC
 nnoremap <silent> <F1> :NERDTreeToggle<cr>
 vnoremap <F1> ESC
