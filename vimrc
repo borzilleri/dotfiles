@@ -196,15 +196,18 @@ vnoremap / /\v
 " Global subsitutions by default
 set gdefault
 
+" Map tab to match parens/braces/etc
 nnoremap <tab> %
 vnoremap <tab> %
 
+" Sane up/down bindings
 noremap j gj
 noremap k gk
 
 " Map del/yank/put commands with leader
 " prefixes for global clipboard
 map <silent> <leader>p "+p
+map <silent> <leader>P "+P
 map <silent> <leader>d "+d
 map <silent> <leader>y "+y
 
@@ -216,9 +219,12 @@ nnoremap <C-l> <C-w>l
 
 map <leader>f :CommandT<cr>
 "nnoremap <leader>t :NERDTreeToggle<cr>
-inoremap <F1> ESC
 nnoremap <silent> <F1> :NERDTreeToggle<cr>
-vnoremap <F1> ESC
+
+" Kill help bindings.
+inoremap <silent> <F1> <Esc>
+vnoremap <silent> <F1> <Esc>
+"nnoremap <silent> <F1> <Esc>
 
 " Remove all trailing whitespace
 nnoremap <silent> <F3> :let _s=@\<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
