@@ -31,15 +31,25 @@ shopt -s histappend # append to history file instead of overwrite
 # Include aliases bashrc file
 [ -f $BASHRC_ROOT/aliases.bash ] && source $BASHRC_ROOT/aliases.bash;
 
-# Include OS Specific bashrc file
-[ -f ~/.bashrc_os.bash ] && source ~/.bashrc_os.bash
-
 # Set up our prompt
-export PS1="\u@\H:\W${GREEN}\$(__git_ps1 ':%s')${RESET}\$ ";
+PS1="\u@\H:\W${GREEN}\$(__git_ps1 ':%s')${RESET}\$ ";
+
+OS_NAME=`uname -s`
+NODE_NAME=`uname -n`
+
+# Include OS Specific bashrc file.
+[ -f $BASHRC_ROOT/os/$OS_NAME.bash ] && source $BASHRC_ROOT/os/$OS_NAME.bash
 
 # Include Machine Specific bashrc file
+[ -f $BASHRC_ROOT/machine/$NODE_NAME.bash ] &&
+	source $BASHRC_ROOT/machine/$NODE_NAME.bash
+
+
+# Include OS Specific bashrc file
+#[ -f ~/.bashrc_os.bash ] && source ~/.bashrc_os.bash
+# Include Machine Specific bashrc file
 # NOTE: This should probably be a REAL file, not a symlink from Dropbox.
-[ -f ~/.bashrc_local.bash ] && source ~/.bashrc_local.bash
+#[ -f ~/.bashrc_local.bash ] && source ~/.bashrc_local.bash
 
 # Finally set additional PATHs and export it. We do this last, as we 
 # probably got some additional PATHs from the includes.
@@ -47,3 +57,6 @@ export PATH="$HOME/bin:$PATH";
 
 # Load RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+# Finally, export our prompt
+export $PS1
