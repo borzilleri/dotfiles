@@ -14,7 +14,6 @@ export LC_COLLATE="C"
 export PAGER="less"
 export EDITOR="vim"
 export LESSCHARSET="utf-8"
-#export BASH_COMPLETION_DIR=$BASHRC_ROOT/bash_completion.d
 
 shopt -s cdspell # correct minor directory spelling errors in cd cmd.
 shopt -s checkwinsize # Refresh window size after each cmd
@@ -26,6 +25,7 @@ shopt -s histappend # append to history file instead of overwrite
 # Source the .inputrc file if it exists
 [ -f $BASHRC_ROOT/inputrc ] && source $BASHRC_ROOT/inputrc
 
+# Source our functions file
 [ -f $BASHRC_ROOT/functions.bash ] && source $BASHRC_ROOT/functions.bash;
 
 # Include aliases bashrc file
@@ -34,22 +34,14 @@ shopt -s histappend # append to history file instead of overwrite
 # Set up our prompt
 PS1="\u@\H:\W${GREEN}\$(__git_ps1 ':%s')${RESET}\$ ";
 
-OS_NAME=`uname -s`
-NODE_NAME=`uname -n`
-
 # Include OS Specific bashrc file.
-[ -f $BASHRC_ROOT/os/$OS_NAME.bash ] && source $BASHRC_ROOT/os/$OS_NAME.bash
+OS_FILE=`uname -s`".bash"
+[ -f $BASHRC_ROOT/os/$OS_FILE ] && source $BASHRC_ROOT/os/$OS_FILE
 
 # Include Machine Specific bashrc file
-[ -f $BASHRC_ROOT/machine/$NODE_NAME.bash ] &&
-	source $BASHRC_ROOT/machine/$NODE_NAME.bash
-
-
-# Include OS Specific bashrc file
-#[ -f ~/.bashrc_os.bash ] && source ~/.bashrc_os.bash
-# Include Machine Specific bashrc file
-# NOTE: This should probably be a REAL file, not a symlink from Dropbox.
-#[ -f ~/.bashrc_local.bash ] && source ~/.bashrc_local.bash
+NODE_FILE=`uname -n`
+[ -f $BASHRC_ROOT/machine/$NODE_FILE ] &&
+	source $BASHRC_ROOT/machine/$NODE_FILE
 
 # Finally set additional PATHs and export it. We do this last, as we 
 # probably got some additional PATHs from the includes.
@@ -59,4 +51,4 @@ export PATH="$HOME/bin:$PATH";
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # Finally, export our prompt
-export $PS1
+export PS1
