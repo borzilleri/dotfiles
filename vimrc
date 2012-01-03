@@ -280,3 +280,10 @@ augroup ft_js
 	au FileType javascript setlocal foldmethod=marker
 	au FileType javascript setlocal foldmarker={,}
 augroup END
+
+augroup ft_css
+	au!
+	au FileType css,scss setlocal foldmethod=marker
+	au FileType css,scss setlocal foldmarker={,}
+augroup END
+
