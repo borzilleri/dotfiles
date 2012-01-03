@@ -39,7 +39,7 @@ OS_FILE=`uname -s`".bash"
 [ -f $BASHRC_ROOT/os/$OS_FILE ] && source $BASHRC_ROOT/os/$OS_FILE
 
 # Include Machine Specific bashrc file
-NODE_FILE=`uname -n`
+NODE_FILE=`uname -n`".bash"
 [ -f $BASHRC_ROOT/machine/$NODE_FILE ] &&
 	source $BASHRC_ROOT/machine/$NODE_FILE
 
