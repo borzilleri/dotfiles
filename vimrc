@@ -266,7 +266,8 @@ augroup filetype
 	autocmd BufNewFile,BufRead */ssh/config set filetype=sshconfig
 "	autocmd BufNewFile,BufRead *.html set filetype=php
 	autocmd BufNewFile,BufRead *.json set filetype=javascript
-	autocmd BufNewFile,BufRead *.tpl  set filetype=html
+	autocmd BufNewFile,BufRead *.tpl set filetype=html
+	autocmd BufNewFile,BufRead *.jst set filetype=jst
 augroup END
 
 " Set omni completion
