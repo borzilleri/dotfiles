@@ -131,7 +131,7 @@ set shiftwidth=2
 set shiftround
 set noexpandtab
 set wrap
-set textwidth=80
+set textwidth=78
 " Tabs at the start of a line, spaces elsewhere.
 set smarttab
 set formatoptions=croqn
@@ -257,6 +257,9 @@ au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 au FocusLost * silent! :wa
 " CD to a file when editing it.
 "au BufEnter * lcd %:p:h
+
+" Remove trailing whitespace on save/open
+autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
 
 " Force certain file types.
 augroup filetype
