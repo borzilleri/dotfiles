@@ -131,7 +131,7 @@ set shiftwidth=2
 set shiftround
 set noexpandtab
 set wrap
-set textwidth=80
+set textwidth=78
 " Tabs at the start of a line, spaces elsewhere.
 set smarttab
 set formatoptions=croqn
@@ -172,6 +172,17 @@ let NERDTreeChDirMode = 2
 let g:LustyExplorerSuppressRubyWarning = 1
 let g:LustyJugglerSuppressRubyWarning = 1
 
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>
+
+imap jj <Esc>
+
 " Key Bindings
 " Comma as leader key.
 let mapleader = ","
@@ -185,15 +196,18 @@ vnoremap / /\v
 " Global subsitutions by default
 set gdefault
 
+" Map tab to match parens/braces/etc
 nnoremap <tab> %
 vnoremap <tab> %
 
+" Sane up/down bindings
 noremap j gj
 noremap k gk
 
 " Map del/yank/put commands with leader
 " prefixes for global clipboard
 map <silent> <leader>p "+p
+map <silent> <leader>P "+P
 map <silent> <leader>d "+d
 map <silent> <leader>y "+y
 
@@ -203,10 +217,14 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-nnoremap <leader>t :NERDTreeToggle<cr>
-inoremap <F1> ESC
+map <leader>f :CommandT<cr>
+"nnoremap <leader>t :NERDTreeToggle<cr>
 nnoremap <silent> <F1> :NERDTreeToggle<cr>
-vnoremap <F1> ESC
+
+" Kill help bindings.
+inoremap <silent> <F1> <Esc>
+vnoremap <silent> <F1> <Esc>
+"nnoremap <silent> <F1> <Esc>
 
 " Remove all trailing whitespace
 nnoremap <silent> <F3> :let _s=@\<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
@@ -240,6 +258,9 @@ au FocusLost * silent! :wa
 " CD to a file when editing it.
 "au BufEnter * lcd %:p:h
 
+" Remove trailing whitespace on save/open
+autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
+
 " Force certain file types.
 augroup filetype
 	autocmd BufNewFile,BufRead */ssh/config set filetype=sshconfig
@@ -247,6 +268,8 @@ augroup filetype
 	autocmd BufNewFile,BufRead *.json set filetype=javascript
 	autocmd BufNewFile,BufRead *.tpl  set filetype=html
 	autocmd BufNewFile,BufRead *.md   set filetype=markdown
+	autocmd BufNewFile,BufRead *.tpl set filetype=html
+	autocmd BufNewFile,BufRead *.jst set filetype=jst
 augroup END
 
 " Set omni completion
@@ -263,3 +286,10 @@ augroup ft_js
 	au FileType javascript setlocal foldmethod=marker
 	au FileType javascript setlocal foldmarker={,}
 augroup END
+
+augroup ft_css
+	au!
+	au FileType css,scss setlocal foldmethod=marker
+	au FileType css,scss setlocal foldmarker={,}
+augroup END
+
