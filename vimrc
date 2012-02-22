@@ -246,6 +246,7 @@ augroup filetype
 "	autocmd BufNewFile,BufRead *.html set filetype=php
 	autocmd BufNewFile,BufRead *.json set filetype=javascript
 	autocmd BufNewFile,BufRead *.tpl  set filetype=html
+	autocmd BufNewFile,BufRead *.md   set filetype=markdown
 augroup END
 
 " Set omni completion
