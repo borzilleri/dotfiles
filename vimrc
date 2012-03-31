@@ -270,6 +270,7 @@ augroup filetype
 	autocmd BufNewFile,BufRead *.md   set filetype=markdown
 	autocmd BufNewFile,BufRead *.tpl set filetype=html
 	autocmd BufNewFile,BufRead *.jst set filetype=jst
+	autocmd BufNewFile,BufRead *.less set filetype=scss
 augroup END
 
 " Set omni completion
@@ -289,7 +290,7 @@ augroup END
 
 augroup ft_css
 	au!
-	au FileType css,scss setlocal foldmethod=marker
-	au FileType css,scss setlocal foldmarker={,}
+	au FileType css,scss,less setlocal foldmethod=marker
+	au FileType css,scss,less setlocal foldmarker={,}
 augroup END
 
