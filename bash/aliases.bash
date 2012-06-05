@@ -50,6 +50,7 @@ BRIGHT_CYAN="\[$ESC[${BRIGHT};${FG_CYAN}m\]"
 BRIGHT_WHITE="\[$ESC[${BRIGHT};${FG_WHITE}m\]"
 
 alias grep='grep --color=auto';
+alias gtag='git tag | sort -V';
 
 vifind() {
 	if [ $# > 1 ]; then
