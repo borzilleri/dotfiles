@@ -25,14 +25,14 @@ set hidden
 set nobackup
 " Don't use swap files.
 set noswapfile
-" Command history
+" Command history size
 set history=1000
-" Undo history
+" Undo history size
 set undolevels=1000
 set encoding=utf-8
 
 
-" Autocomplete commands
+" Enable autocompletion for commands
 set wildmenu
 set wildmode=list:longest
 " Ignore these patterns.
@@ -79,7 +79,7 @@ set sidescrolloff=10
 " Enable Syntax Highlighting
 syntax on
 " Disable syntax highlighting after the 100th column
-set synmaxcol=125
+set synmaxcol=150
 " indicates that this should be a "fast" tty console
 set ttyfast
 set ttyscroll=3
