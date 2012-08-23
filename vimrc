@@ -86,6 +86,7 @@ set shell=/bin/bash
 set showbreak=↪
 " Put new windows to the right of the current one
 set splitright
+set ttyfast
 
 set autowrite
 set autoread
