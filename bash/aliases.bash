@@ -59,7 +59,7 @@ vifind() {
 		FIND_PATH='.';
 		FILE_NAME=$1;
 	fi
-	find "$FIND_PATH" -iname "$FILE_NAME" -exec vi {} \;
+	find "$FIND_PATH" -iname "$FILE_NAME" -exec vim {} \;
 }
 mkcd() {
 	mkdir -p "$*"

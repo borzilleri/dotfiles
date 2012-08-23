@@ -15,6 +15,8 @@ export PAGER="less"
 export EDITOR="vim"
 export LESSCHARSET="utf-8"
 
+export WORKON_HOME=$HOME/.virtualenvs
+
 shopt -s cdspell # correct minor directory spelling errors in cd cmd.
 shopt -s checkwinsize # Refresh window size after each cmd
 shopt -s cmdhist # save all lines of multi-line cmds to same histry entry
@@ -31,6 +33,9 @@ shopt -s histappend # append to history file instead of overwrite
 # Include aliases bashrc file
 [ -f $BASHRC_ROOT/aliases.bash ] && source $BASHRC_ROOT/aliases.bash;
 
+# Source the virtualenvwrapper file
+[ -f /usr/local/bin/virtualenvwrapper.sh ] && source /usr/local/bin/virtualenvwrapper.sh
+
 # Set up our prompt
 PS1="\u@\H:\W${GREEN}\$(__git_ps1 ':%s')${RESET}\$ ";
 
@@ -43,7 +48,7 @@ NODE_FILE=`uname -n`".bash"
 [ -f $BASHRC_ROOT/machine/$NODE_FILE ] &&
 	source $BASHRC_ROOT/machine/$NODE_FILE
 
-# Finally set additional PATHs and export it. We do this last, as we 
+# Finally set additional PATHs and export it. We do this last, as we
 # probably got some additional PATHs from the includes.
 export PATH="$HOME/bin:$PATH";
 
