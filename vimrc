@@ -25,14 +25,14 @@ set hidden
 set nobackup
 " Don't use swap files.
 set noswapfile
-" Command history
+" Command history size
 set history=1000
-" Undo history
+" Undo history size
 set undolevels=1000
 set encoding=utf-8
 
 
-" Autocomplete commands
+" Enable autocompletion for commands
 set wildmenu
 set wildmode=list:longest
 " Ignore these patterns.
@@ -79,7 +79,13 @@ set sidescrolloff=10
 " Enable Syntax Highlighting
 syntax on
 " Disable syntax highlighting after the 100th column
-set synmaxcol=200
+set synmaxcol=150
+" indicates that this should be a "fast" tty console
+set ttyfast
+set ttyscroll=3
+
+set lazyredraw
+
 
 set shell=/bin/bash
 " Show this character at the start of lines that have been wrapped
@@ -146,6 +152,7 @@ vnoremap <Space> za
 nnoremap zO zCzO
 " ,z focuses current fold
 nnoremap <leader>z zMzvzz
+let g:xml_syntax_folding=1
 
 " Searching
 set incsearch
@@ -261,6 +268,11 @@ au FocusLost * silent! :wa
 
 " Remove trailing whitespace on save/open
 autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
+
+au FileType xml setlocal foldmethod=syntax
+
+" show git diff in window split
+"autocmd FileType gitcommit DiffGitCached | wincmd p
 
 " Force certain file types.
 augroup filetype
