@@ -1,15 +1,17 @@
 #!/bin/bash
 DIR="$(cd -P "$(dirname "$0")" && pwd)"
-
-ln -s "$DIR/bash/bash_profile" "$HOME/.bash_profile"
-ln -s "$DIR/bash/bashrc" "$HOME/.bashrc"
-ln -s "$DIR/bash/inputrc" "$HOME/.inputrc"
-ln -s "$DIR/bash/hushlogin" "$HOME/.hushlogin"
-ln -s "$DIR/bash/ackrc" "$HOME/.ackrc"
-ln -s "$DIR/git/gitignore" "$HOME/.gitignore"
-
-if [ ! -d "$HOME/.ssh" ]; then
-	mkdir "$HOME/.ssh"
-	chmod 700 "$HOME/.ssh"
+F=""
+if [[ $1 && "$1" == "-f" ]]; then
+	F="-f"
 fi
-ln -s "$DIR/ssh/config" "$HOME/.ssh/config"
+
+ln -s $F "$DIR/bash/bash_profile" "$HOME/.bash_profile"
+ln -s $F "$DIR/bash/bashrc" "$HOME/.bashrc"
+ln -s $F "$DIR/bash/inputrc" "$HOME/.inputrc"
+ln -s $F "$DIR/bash/hushlogin" "$HOME/.hushlogin"
+ln -s $F "$DIR/bash/ackrc" "$HOME/.ackrc"
+ln -s $F "$DIR/git/gitignore" "$HOME/.gitignore"
+
+mkdir -p "$HOME/.ssh"
+chmod 700 "$HOME/.ssh"
+ln -s $F "$DIR/ssh/config" "$HOME/.ssh/config"
