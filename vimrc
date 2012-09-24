@@ -1,3 +1,5 @@
+set runtimepath=$HOME/.vim_runtime/vim,$VIMRUNTIME
+
 " Don't use vi-compatible mode
 set nocompatible
 " Turn off filetype detection for Pathogen.
