@@ -49,5 +49,5 @@ Host groo
 	User jborzilleri
 
 Host whatif-dev
-	HostName whatif-dev-web01
+	HostName whatif-dev-web01.intrepid.agile
 	User jborzilleri
