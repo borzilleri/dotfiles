@@ -7,7 +7,7 @@ alias l="ls -loGhF";
 alias cdopen="drutil tray eject";
 alias cdclose="drutil tray close";
 
-PATH="$PATH:/Developer/Tools"
+PATH="/usr/local/share/python:$PATH:/Developer/Tools"
 
 export CC='gcc-4.2'
 

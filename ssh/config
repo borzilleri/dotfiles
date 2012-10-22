@@ -43,3 +43,11 @@ Host wired-gendo
 	User jonathan
 	Port 53022
 
+# Intrepid network aliases
+Host groo
+	HostName groo.intrepid.agile
+	User jborzilleri
+
+Host whatif-dev
+	HostName whatif-dev-web01
+	User jborzilleri
