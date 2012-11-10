@@ -2,6 +2,4 @@
 smarty=.tpl
 
 --type-add
-css=.scss
-
-
+css=.scss,.sass,.less
