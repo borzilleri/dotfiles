@@ -3,6 +3,9 @@ Controlpath /tmp/ssh_mux_%h_%p_%r
 ControlPersist 2h
 GSSAPIAuthentication no
 
+Host dh-nwc
+	HostName brumbies.dreamhost.com
+	User nwc_cm
 
 # rampant.io aliases
 Host durandal
