@@ -54,3 +54,7 @@ Host groo
 Host whatif-dev
 	HostName whatif-dev-web01.intrepid.agile
 	User jborzilleri
+
+Host whatif-uat
+	HostName whatif-web-uat01.intrepid.agile
+	User jborzilleri
