@@ -9,3 +9,5 @@ Thumbs.db
 .svn
 .pbxuser
 .modelv3
+.idea/
+*.iml
