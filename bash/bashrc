@@ -57,3 +57,5 @@ export PATH="$HOME/bin:$PATH";
 
 # Finally, export our prompt
 export PS1
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

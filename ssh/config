@@ -16,6 +16,9 @@ Host tycho
 	HostName tycho.rampant.io
 	User jonathan
 	ForwardAgent yes
+Host leela
+	Hostname leela.rampant.io
+	User jonathan
 Host mcmap
 	Hostname tycho.rampant.io
 	User jonathan
@@ -45,6 +48,16 @@ Host wired-gendo
 	Hostname thewired.doesntexist.com
 	User jonathan
 	Port 53022
+
+# Norwescon Aliases
+Host nwc
+	HostName brumbies.dreamhost.com
+	User nwc_cm
+
+Host nwc-tunnel
+	HostName brumbies.dreamhost.com
+	User nwc_cm
+	LocalForward 3306 127.0.0.1:3306
 
 # Intrepid network aliases
 Host groo
