@@ -10,7 +10,7 @@ filetype off
 "			\ expand('%:t:s!\(\w\+\)\.vba\(\.\w\+\)\?!\1!')
 
 " Call Pathogen
-call pathogen#runtime_append_all_bundles()
+call pathogen#incubate()
 call pathogen#helptags()
 
 " Re-Enable filetype detection after Pathogen is done
