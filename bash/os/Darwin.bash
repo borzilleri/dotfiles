@@ -7,6 +7,11 @@ alias l="ls -loGhF";
 alias cdopen="drutil tray eject";
 alias cdclose="drutil tray close";
 
+
+if command -v hub >/dev/null 2>&1; then
+	eval "$(hub alias -s)"
+fi
+
 if [ -d /usr/local/share/npm ]; then
 	PATH="$PATH:/usr/local/share/npm/bin"
 fi
