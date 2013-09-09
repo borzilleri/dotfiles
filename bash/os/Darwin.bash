@@ -11,7 +11,7 @@ if [ -d /usr/local/share/npm ]; then
 	PATH="$PATH:/usr/local/share/npm/bin"
 fi
 
-PATH="/usr/local/share/python:$PATH:/Developer/Tools"
+PATH="$PATH:/Developer/Tools"
 
 export CC='gcc-4.2'
 
