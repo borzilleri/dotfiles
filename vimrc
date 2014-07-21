@@ -10,7 +10,7 @@ filetype off
 "			\ expand('%:t:s!\(\w\+\)\.vba\(\.\w\+\)\?!\1!')
 
 " Call Pathogen
-call pathogen#incubate()
+call pathogen#infect('bundle/{}')
 call pathogen#helptags()
 
 " Re-Enable filetype detection after Pathogen is done
