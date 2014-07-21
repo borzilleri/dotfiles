@@ -10,3 +10,12 @@ function parse_git_branch {
 		echo "("${ref#refs/heads/}")"
 	fi
 }
+
+function git_prune_remotes {
+	if [ $# -lt 1 ]; then
+		echo "usage: gprune <remote>";
+	else
+		git branch -r --merged | grep -v master | grep -e $1 \
+			| sed -e s,$1/,:, | xargs git push $1
+	fi
+}
