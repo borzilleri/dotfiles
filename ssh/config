@@ -71,3 +71,8 @@ Host whatif-dev
 Host whatif-uat
 	HostName whatif-web-uat01.intrepid.agile
 	User jborzilleri
+
+Host cm
+	HostName cm.norwescon.lcl
+	Port 222
+	User jonathan
