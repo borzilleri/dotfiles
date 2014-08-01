@@ -4,7 +4,7 @@ ControlPersist 1h
 GSSAPIAuthentication no
 
 Host dh-nwc
-	HostName brumbies.dreamhost.com
+	HostName atterberg.dreamhost.com
 	User nwc_cm
 
 # rampant.io aliases
