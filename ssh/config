@@ -36,11 +36,11 @@ Host wired-nerv
 
 # Norwescon Aliases
 Host nwc
-	HostName brumbies.dreamhost.com
+	HostName atterberg.dreamhost.com
 	User nwc_cm
 
 Host nwc-tunnel
-	HostName brumbies.dreamhost.com
+	HostName atterberg.dreamhost.com
 	User nwc_cm
 	LocalForward 3306 127.0.0.1:3306
 
