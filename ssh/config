@@ -30,24 +30,9 @@ Host nerv
 	User jonathan
 	Ciphers arcfour
 Host wired-nerv
-	HostName thewired.doesntexist.com
+	HostName thewired.rampant.io
 	User jonathan
 	Port 51022
-Host magi
-	HostName Magi.local
-	User jonathan
-Host wired-magi
-	HostName thewired.doesntexist.com
-	Port 52022
-	User jonathan
-# TODO: Need to get dns working properly for gendo
-Host gendo
-	Hostname 192.168.1.53
-	User jonathan
-Host wired-gendo
-	Hostname thewired.doesntexist.com
-	User jonathan
-	Port 53022
 
 # Norwescon Aliases
 Host nwc
