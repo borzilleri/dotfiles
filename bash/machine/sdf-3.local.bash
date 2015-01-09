@@ -7,6 +7,8 @@ PATH="$GEM_PATH/bin:$PATH";
 
 PS1="\h:\W${GREEN}\$(__git_ps1 ':%s')${RESET}\$ ";
 
+complete -C aws_completer aws
+
 vssh() {
 	cd $HOME/Projects/vagrant-mlp
 	vagrant ssh
