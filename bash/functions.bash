@@ -20,3 +20,12 @@ function git_prune_remotes {
 			| sed -e s,$1/,:, | xargs git push $1;
 	fi
 }
+
+function marked() {
+	APP="Marked 2.app"
+	if [ $1 ]; then
+		open -a "$APP" $1
+	else
+		open -a "$APP"
+	fi
+}
