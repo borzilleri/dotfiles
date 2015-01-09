@@ -44,6 +44,11 @@ Host nwc-tunnel
 	User nwc_cm
 	LocalForward 3306 127.0.0.1:3306
 
+Host cm
+	HostName cm.norwescon.lcl
+	Port 222
+	User jonathan
+
 # Intrepid network aliases
 Host groo
 	HostName groo.intrepid.agile
@@ -57,7 +62,12 @@ Host whatif-uat
 	HostName whatif-web-uat01.intrepid.agile
 	User jborzilleri
 
-Host cm
-	HostName cm.norwescon.lcl
+Host docker
+	Hostname 192.168.59.103
 	Port 222
-	User jonathan
+	HostKeyAlias docker
+	StrictHostKeyChecking no
+	VerifyHostKeyDNS no
+	CheckHostIP no
+	User root
+
