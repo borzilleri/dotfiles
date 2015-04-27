@@ -1,4 +1,4 @@
-set runtimepath=$HOME/.vim_runtime/vim,$VIMRUNTIME
+set runtimepath=$HOME/.dotfiles/vim,$VIMRUNTIME
 
 " Don't use vi-compatible mode
 set nocompatible
