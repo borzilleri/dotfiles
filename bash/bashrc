@@ -1,5 +1,5 @@
 # .bashrc
-BASHRC_ROOT=~/.dotfiles/bash
+BASHRC_ROOT=$(dirname "$(readlink -n "${BASH_SOURCE[0]}")")
 
 # History Control, ignore spaces & ignore dups
 HISTCONTROL=ignoreboth
@@ -9,6 +9,8 @@ export HISTCONTROL;
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)";
 
 # Set & Export various environment variables
+export BASHRC_ROOT
+export DOTFILES_ROOT=$(dirname "$BASHRC_ROOT")
 export LANG="en_US.UTF-8"
 export LC_COLLATE="C"
 export PAGER="less"

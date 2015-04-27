@@ -1,4 +1,5 @@
-set runtimepath=$HOME/.dotfiles/vim,$VIMRUNTIME
+set runtimepath=$DOTFILES_ROOT/vim,$VIMRUNTIME
+"set runtimepath=$HOME/.dotfiles/vim,$VIMRUNTIME
 
 " Don't use vi-compatible mode
 set nocompatible
@@ -247,7 +248,7 @@ nnoremap <F4> :set invpaste paste?<cr>
 nnoremap <silent> \ :noh<cr>
 
 " Fast Editing of vimrc
-map <silent> <leader>e :e! ~/.vim_runtime/vimrc<cr>
+map <silent> <leader>e :e! $BASHRC_ROOT/vimrc<cr>
 
 " Highlight SQL in PHP Strings.
 "let php_sql_query = 1
@@ -256,7 +257,7 @@ let php_htmlInStrings = 1
 
 " Auto Commands
 " Source vimrc as soon as it's written.
-autocmd! BufWritePost vimrc source ~/.vim_runtime/vimrc
+autocmd! BufWritePost vimrc source $BASHRC_ROOT/vimrc
 
 "autocmd FileType php noremap <c-L> :!php -l %<cr>
 
