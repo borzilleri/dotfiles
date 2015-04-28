@@ -7,8 +7,8 @@ source "$(brew --prefix)/etc/bash_completion"
 export CLICOLOR=1
 
 ## ALIASES
-alias cdopen="drutil tray eject";
-alias cdclose="drutil tray close";
+alias cdopen="drutil tray eject"
+alias cdclose="drutil tray close"
 alias kosh='curl -s https://api.github.com/zen | cowsay -f kosh'
 
 ## FUNCTIONS

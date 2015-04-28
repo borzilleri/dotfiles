@@ -35,7 +35,7 @@ shopt -s histappend # append to history file instead of overwrite
 [ -f $BASHRC_ROOT/functions.bash ] && source $BASHRC_ROOT/functions.bash
 
 # Source color definitions
-[ -f $BASHRC_ROOT/colors.bash] && source $BASHRC_ROOT/colors.bash
+[ -f $BASHRC_ROOT/colors.bash ] && source $BASHRC_ROOT/colors.bash
 
 # Include aliases bashrc file
 [ -f $BASHRC_ROOT/aliases.bash ] && source $BASHRC_ROOT/aliases.bash
