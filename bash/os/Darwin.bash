@@ -1,24 +1,17 @@
 # bashrc for OSX
 
 # TODO: this doesn't seem to be working for ssh prompts?
-source `brew --prefix`/etc/bash_completion
+source "$(brew --prefix)/etc/bash_completion"
 
-alias vi="/usr/local/bin/vim";
-alias l="ls -loGhF";
+## EXPORTS
+export CLICOLOR=1
+
+## ALIASES
 alias cdopen="drutil tray eject";
 alias cdclose="drutil tray close";
+alias kosh='curl -s https://api.github.com/zen | cowsay -f kosh'
 
-if command -v hub >/dev/null 2>&1; then
-	eval "$(hub alias -s)"
-fi
-
-if [ -d /usr/local/share/npm ]; then
-	PATH="$PATH:/usr/local/share/npm/bin"
-fi
-PATH="$PATH:/usr/local/opt/go/libexec/bin"
-PATH="$PATH:/Developer/Tools"
-
-export CC='gcc-4.2'
+## FUNCTIONS
 
 logoutgui() {
 	osascript -e 'tell application "System Events" to log out'
