@@ -280,7 +280,7 @@ au FileType xml setlocal foldmethod=syntax
 augroup filetype
 	autocmd BufNewFile,BufRead */ssh/config set filetype=sshconfig
 "	autocmd BufNewFile,BufRead *.html set filetype=php
-	autocmd BufNewFile,BufRead *.json set filetype=javascript
+	autocmd BufNewFile,BufRead *.json set filetype=json
 	autocmd BufNewFile,BufRead *.tpl  set filetype=html
 	autocmd BufNewFile,BufRead *.md   set filetype=markdown
 	autocmd BufNewFile,BufRead *.tpl set filetype=html
