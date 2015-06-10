@@ -4,9 +4,7 @@ alias vi='vim'
 alias l='ls -ohF'
 alias grep='grep --color=auto'
 alias gtag='git tag | sort -V'
-alias gclean='git branch --merged | \
-	grep -v "\*" | \
-	xargs -n 1 git branch -d'
+alias gclean='git branch --merged | grep -v "\*" | xargs -n 1 git branch -d'
 alias gprune='git_prune_remotes'
 alias dotfiles='cd "$DOTFILES_ROOT"'
 
