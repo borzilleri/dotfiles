@@ -28,6 +28,11 @@ shopt -s cmdhist # save all lines of multi-line cmds to same histry entry
 shopt -s histappend # append to history file instead of overwrite
 
 
+# Initialize the prompt command var.
+# We'll export this later, but we may want to append to it elsewhere.
+PROMPT_COMMAND=''
+
+
 # Source the .inputrc file if it exists
 [ -f $BASHRC_ROOT/inputrc ] && source $BASHRC_ROOT/inputrc
 
@@ -62,7 +67,8 @@ export PATH="$HOME/bin:$PATH";
 # Load RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
-# Finally, export our prompt
+# Finally, export our shell prompt & prompt command
 export PS1
+export PROMPT_COMMAND
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
