@@ -5,7 +5,6 @@ export MVN_HOME="$(brew --prefix maven)/libexec"
 export GOPATH="$HOME/src/go:$HOME/Projects/go"
 export DOCKER_HOST="tcp://docker.intrepid.agile:2375"
 
-#PATH="$GEM_PATH/bin:$PATH";
 
 PS1="\h:\W${GREEN}\$(__git_ps1 ':%s')${RESET}\$ ";
 
