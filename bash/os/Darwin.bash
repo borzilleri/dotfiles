@@ -1,5 +1,7 @@
 # bashrc for OSX
 
+PROMPT_COMMAND=$PROMPT_COMMAND'echo -ne "\033]0;${PWD/#$HOME/~}\007";'
+
 # TODO: this doesn't seem to be working for ssh prompts?
 source "$(brew --prefix)/etc/bash_completion"
 
@@ -9,7 +11,6 @@ export CLICOLOR=1
 ## ALIASES
 alias cdopen="drutil tray eject"
 alias cdclose="drutil tray close"
-alias kosh='curl -s https://api.github.com/zen | cowsay -f kosh'
 
 ## FUNCTIONS
 
