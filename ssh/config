@@ -3,26 +3,15 @@ Controlpath /tmp/ssh_mux_%h_%p_%r
 ControlPersist 1h
 GSSAPIAuthentication no
 
-Host dh-nwc
-	HostName atterberg.dreamhost.com
-	User nwc_cm
-
 # rampant.io aliases
+Host mainframe
+	Hostname mainframe.rampant.io
+	User jonathan
+	Port 6028
 Host durandal
 	HostName durandal.rampant.io
 	User jonathan
 	ForwardAgent yes
-Host tycho
-	HostName tycho.rampant.io
-	User jonathan
-	ForwardAgent yes
-Host leela
-	Hostname leela.rampant.io
-	User jonathan
-Host mcmap
-	Hostname tycho.rampant.io
-	User jonathan
-	identityfile /home/jonathan/.ssh/id_rsa_mcmap
 
 # HOME Network aliases
 Host nerv
@@ -33,41 +22,22 @@ Host wired-nerv
 	HostName thewired.rampant.io
 	User jonathan
 	Port 51022
+Host pi
+	HostName huepi.wired.lan
+	User pi
+Host retropi
+	HostName retropi.wired.lan
+	User pi
 
 # Norwescon Aliases
 Host nwc
+	Hostname cm-do.norwescon.org
+Host dh-nwc
 	HostName atterberg.dreamhost.com
 	User nwc_cm
-
-Host nwc-tunnel
-	HostName atterberg.dreamhost.com
-	User nwc_cm
-	LocalForward 3306 127.0.0.1:3306
-
 Host cm
 	HostName cm.norwescon.lcl
 	Port 222
 	User jonathan
 
-# Intrepid network aliases
-Host groo
-	HostName groo.intrepid.agile
-	User jborzilleri
-
-Host whatif-dev
-	HostName whatif-dev-web01.intrepid.agile
-	User jborzilleri
-
-Host whatif-uat
-	HostName whatif-web-uat01.intrepid.agile
-	User jborzilleri
-
-Host docker
-	Hostname 192.168.59.103
-	Port 222
-	HostKeyAlias docker
-	StrictHostKeyChecking no
-	VerifyHostKeyDNS no
-	CheckHostIP no
-	User root
 
