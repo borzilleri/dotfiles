@@ -12,6 +12,7 @@ ln -s $F "$DIR/bash/hushlogin" "$HOME/.hushlogin"
 ln -s $F "$DIR/bash/ackrc" "$HOME/.ackrc"
 ln -s $F "$DIR/git/gitignore" "$HOME/.gitignore"
 ln -s $f "$DIR/bash/vimrc" $HOME/.vimrc
+ln -s $f "$DIR/bash/sshrc.bash" $HOME/.sshrc
 
 mkdir -p "$HOME/.ssh"
 chmod 700 "$HOME/.ssh"

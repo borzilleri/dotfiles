@@ -1,0 +1,166 @@
+" Don't use vi-compatible mode
+set nocompatible
+
+" General Behavior
+" Enable Hidden Buffers
+set hidden
+" Don't use backup files.
+set nobackup
+" Don't use swap files.
+set noswapfile
+" Command history size
+set history=1000
+" Undo history size
+set undolevels=1000
+set encoding=utf-8
+
+
+" Enable autocompletion for commands
+set wildmenu
+set wildmode=list:longest
+" Ignore these patterns.
+set wildignore=*.swp,*.bak
+set wildignore+=.hg,.git,.svn
+set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg
+set wildignore+=*.DS_Store
+set wildignore+=*.luac
+set wildignore+=*.pyc
+
+" Show cursor column & line number
+set ruler
+" Command line height
+set cmdheight=2
+" Show line numbers
+set number
+" Show current mode
+set showmode
+" Show keyboard input in command
+set showcmd
+" Make backspace saner.
+set backspace=indent,eol,start
+" Backspace across line boundaries
+set whichwrap+=<,>,h,l
+" Avoid the "press a key" prompt
+set shortmess=atI
+" Use screen flash for alerts.
+set visualbell
+" Don't make noise.
+set noerrorbells
+" Highlight the current line
+set cursorline
+" Show matching brackets/braces/parens
+set showmatch
+" Blink matching brackets for 5/10ths
+set matchtime=5
+" Min lines above/below the cursor
+set scrolloff=10
+set sidescrolloff=10
+" Set the Terminal Title
+"set title
+" Enable Syntax Highlighting
+syntax on
+" Disable syntax highlighting after the 100th column
+set synmaxcol=150
+" indicates that this should be a "fast" tty console
+set ttyfast
+set ttyscroll=3
+
+set lazyredraw
+
+
+set shell=/bin/bash
+" Show this character at the start of lines that have been wrapped
+set showbreak=↪
+" Put new windows to the right of the current one
+set ttyfast
+
+set autowrite
+set autoread
+
+" Formatting & Layout
+set autoindent
+set copyindent
+set smartindent
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set shiftround
+set noexpandtab
+set wrap
+set textwidth=78
+" Tabs at the start of a line, spaces elsewhere.
+set smarttab
+set formatoptions=croqn
+
+" Folding
+set foldlevelstart=0
+" Space toggles folds
+nnoremap <Space> za
+vnoremap <Space> za
+" zO recursively opens top level folds
+nnoremap zO zCzO
+" ,z focuses current fold
+nnoremap <leader>z zMzvzz
+let g:xml_syntax_folding=1
+
+" Searching
+set incsearch
+set ignorecase
+set smartcase
+" Highlight search terms.
+set hlsearch
+
+match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>
+
+imap jj <Esc>
+
+" Key Bindings
+" Comma as leader key.
+let mapleader = ","
+"Semicolon as colon (no more shift!)
+nnoremap ; :
+"Open & Move to new vertical split
+nnoremap <leader>w <c-w>v<c-w>l
+
+nnoremap / /\v
+vnoremap / /\v
+" Global subsitutions by default
+set gdefault
+
+" Map tab to match parens/braces/etc
+nnoremap <tab> %
+vnoremap <tab> %
+
+" Sane up/down bindings
+noremap j gj
+noremap k gk
+
+"Navigate splits with C-h/j/k/l
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Kill help bindings.
+inoremap <silent> <F1> <Esc>
+vnoremap <silent> <F1> <Esc>
+"nnoremap <silent> <F1> <Esc>
+
+" Remove all trailing whitespace
+nnoremap <silent> <F3> :let _s=@\<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+
+"F4 Toggles Pastemode
+set pastetoggle=<F4>
+nnoremap <F4> :set invpaste paste?<cr>
+
+" Backslash turns off higlighted search results
+nnoremap <silent> \ :noh<cr>
