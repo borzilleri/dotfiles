@@ -11,9 +11,9 @@ ln -s $F "$DIR/bash/inputrc" "$HOME/.inputrc"
 ln -s $F "$DIR/bash/hushlogin" "$HOME/.hushlogin"
 ln -s $F "$DIR/bash/ackrc" "$HOME/.ackrc"
 ln -s $F "$DIR/git/gitignore" "$HOME/.gitignore"
-ln -s $f "$DIR/bash/vimrc" $HOME/.vimrc
-ln -s $f "$DIR/bash/sshrc.bash" $HOME/.sshrc
-ln -s $f "$DIR/bash/iterm2_shell_integration.bash" "$HOME/.iterm2_shell_integration.bash"
+ln -s $f "$DIR/bash/vimrc" "$HOME/.vimrc"
+ln -s $f "$DIR/bash/sshrc.bash" "$HOME/.sshrc"
+ln -s $f "$DIR/sshrc.d" "$HOME/.sshrc.d"
 
 mkdir -p "$HOME/.ssh"
 chmod 700 "$HOME/.ssh"
