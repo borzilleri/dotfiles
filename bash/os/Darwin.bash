@@ -6,8 +6,7 @@ PROMPT_COMMAND=$PROMPT_COMMAND'echo -ne "\033]0;${PWD/#$HOME/~}\007";'
 source "$(brew --prefix)/etc/bash_completion"
 
 # Setup iTerm2 Shell Integration, if it exists.
-test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
-
+source "$BASHRC_ROOT/iterm2_shell_integration.bash"
 
 ## EXPORTS
 export CLICOLOR=1
