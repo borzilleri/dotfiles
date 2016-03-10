@@ -1,3 +1,5 @@
-
 alias l="ls -ohF --color=auto"
-export VIMINIT="let \$MYVIMRC='$SSHHOME/.sshrc.d/.vimrc' | source \$MYVIMRC"
+export EDITOR="vim"
+export VIMINIT="let \$MYVIMRC='$SSHHOME/.sshrc.d/vimrc' | source \$MYVIMRC"
+
+source "$SSHHOME/.sshrc.d/iterm2_shell_integration.bash"
