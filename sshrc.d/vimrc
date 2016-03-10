@@ -46,8 +46,6 @@ set shortmess=atI
 set visualbell
 " Don't make noise.
 set noerrorbells
-" Highlight the current line
-set cursorline
 " Show matching brackets/braces/parens
 set showmatch
 " Blink matching brackets for 5/10ths
