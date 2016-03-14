@@ -49,7 +49,7 @@ PROMPT_COMMAND=''
 [ -f /usr/local/bin/virtualenvwrapper.sh ] && source /usr/local/bin/virtualenvwrapper.sh
 
 # Set up our prompt
-PS1="\u@\H:\W${GREEN}\$(__git_ps1 ':%s')${RESET}\$ ";
+PS1="\h:\W${GREEN}\$(__git_ps1 ':%s')${RESET}\$ ";
 
 # Include OS Specific bashrc file.
 OS_FILE=`uname -s`".bash"

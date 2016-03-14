@@ -7,6 +7,4 @@ export DOCKER_HOST="tcp://docker.intrepid.agile:2375"
 
 PATH="$PATH:$HOME/src/go/bin"
 
-PS1="\h:\W${GREEN}\$(__git_ps1 ':%s')${RESET}\$ ";
-
 #complete -C aws_completer aws
