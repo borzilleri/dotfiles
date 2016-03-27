@@ -30,6 +30,8 @@ Host retropi
 	User pi
 
 # Norwescon Aliases
+Host twc
+	Hostname cm-do.notwescon.org
 Host nwc
 	Hostname cm-do.norwescon.org
 Host dh-nwc
