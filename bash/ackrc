@@ -1,5 +1,5 @@
---type-set
-smarty=.tpl
+#--pager=less -r
 
---type-add
-css=.scss,.sass,.less
+--ignore-directory=.idea
+--ignore-directory=target
+
