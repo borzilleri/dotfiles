@@ -101,6 +101,10 @@ set autoread
 
 " TODO: check this on OSX
 "set dictionary=/usr/share/dict/words
+"
+if has('macunix')
+	set t_Co=256
+endif
 
 " GUI Options
 if has('gui_running')
