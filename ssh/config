@@ -35,7 +35,7 @@ Host twc
 Host nwc
 	Hostname cm-do.norwescon.org
 Host dh-nwc
-	HostName atterberg.dreamhost.com
+	HostName toledo.dreamhost.com
 	User nwc_cm
 Host cm
 	HostName cm.norwescon.lcl
