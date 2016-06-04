@@ -20,6 +20,9 @@ if [[ $(which brew) && !$(brew ls --versions sshrc) ]]; then
 	eval $(complete -p ssh | sed 's/ ssh$/ sshrc/')
 fi
 
+[[ $(which brew) && !$(brew ls --versions docker) ]] && \
+	source "$BASHRC_ROOT/docker.bash"
+
 ## FUNCTIONS
 
 logoutgui() {
