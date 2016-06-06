@@ -42,6 +42,6 @@ docker_ps_short () {
 		split(status, status_a, " ")
 		ports_s = get_ports(ports)
 		printf "%s\t%s\t%s\t%s\n", names, image, status_a[1], ports_s
-	}' | column -t | sort
+	}' | column -t -s $'\t' -c 80 | sort
 }
 alias dps=docker_ps_short
