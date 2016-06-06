@@ -1,7 +1,12 @@
-set runtimepath=$HOME/.dotfiles/vim,$VIMRUNTIME
+" Setup path to vimrc as global variable
+let g:vimrc = resolve(expand('<sfile>:p'))
+
+let s:vimrcPath = fnamemodify(g:vimrc, ':h')
+let &runtimepath = s:vimrcPath.','.$VIMRUNTIME
 
 " Don't use vi-compatible mode
 set nocompatible
+
 " Turn off filetype detection for Pathogen.
 filetype off
 
@@ -251,7 +256,7 @@ nnoremap <F4> :set invpaste paste?<cr>
 nnoremap <silent> \ :noh<cr>
 
 " Fast Editing of vimrc
-map <silent> <leader>e :e! $BASHRC_ROOT/vimrc<cr>
+map <silent> <leader>e :execute 'edit' g:vimrc<cr>
 
 " Highlight SQL in PHP Strings.
 "let php_sql_query = 1
@@ -260,7 +265,7 @@ let php_htmlInStrings = 1
 
 " Auto Commands
 " Source vimrc as soon as it's written.
-autocmd! BufWritePost vimrc source $BASHRC_ROOT/vimrc
+autocmd! BufWritePost g:vimrc source g:vimrc
 
 "autocmd FileType php noremap <c-L> :!php -l %<cr>
 
@@ -312,4 +317,3 @@ augroup ft_css
 	au FileType css,scss,less setlocal foldmethod=marker
 	au FileType css,scss,less setlocal foldmarker={,}
 augroup END
-

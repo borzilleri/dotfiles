@@ -2,19 +2,29 @@
 DIR="$(cd -P "$(dirname "$0")" && pwd)"
 F=""
 if [[ $1 && "$1" == "-f" ]]; then
-	F="-f"
+	F="f"
 fi
 
-ln -s $F "$DIR/bash/bash_profile" "$HOME/.bash_profile"
-ln -s $F "$DIR/bash/bashrc" "$HOME/.bashrc"
-ln -s $F "$DIR/bash/inputrc" "$HOME/.inputrc"
-ln -s $F "$DIR/bash/hushlogin" "$HOME/.hushlogin"
-ln -s $F "$DIR/bash/ackrc" "$HOME/.ackrc"
-ln -s $F "$DIR/git/gitignore" "$HOME/.gitignore"
-ln -s $f "$DIR/bash/vimrc" "$HOME/.vimrc"
-ln -s $f "$DIR/bash/sshrc.bash" "$HOME/.sshrc"
-ln -s $f "$DIR/sshrc.d" "$HOME/.sshrc.d"
-
+# Setup SSH Directory, if not already done.
 mkdir -p "$HOME/.ssh"
 chmod 700 "$HOME/.ssh"
-ln -s $F "$DIR/ssh/config" "$HOME/.ssh/config"
+
+# SSH Config
+ln -sn$F "$DIR/ssh/config" "$HOME/.ssh/config"
+
+# Shell configuration
+ln -sn$F "$DIR/bash/bash_profile" "$HOME/.bash_profile"
+ln -sn$F "$DIR/bash/bashrc" "$HOME/.bashrc"
+ln -sn$F "$DIR/bash/inputrc" "$HOME/.inputrc"
+ln -sn$F "$DIR/bash/hushlogin" "$HOME/.hushlogin"
+ln -sn$F "$DIR/bash/ackrc" "$HOME/.ackrc"
+
+# sshrc config
+ln -sn$F "$DIR/bash/sshrc.bash" "$HOME/.sshrc"
+ln -sn$F "$DIR/sshrc.d" "$HOME/.sshrc.d"
+
+# vimrc
+ln -sn$F "$DIR/vim/vimrc" "$HOME/.vimrc"
+
+# git
+ln -sn$F "$DIR/git/gitignore" "$HOME/.gitignore"
