@@ -3,3 +3,4 @@
 --ignore-directory=.idea
 --ignore-directory=target
 
+--type-set=routes:ext:routes
