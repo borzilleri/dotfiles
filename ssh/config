@@ -33,6 +33,7 @@ Host retropi
 Host twc
 	Hostname cm-do.notwescon.org
 Host nwc
+	User jonathan
 	Hostname cm-do.norwescon.org
 Host dh-nwc
 	HostName toledo.dreamhost.com
