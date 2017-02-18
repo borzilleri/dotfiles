@@ -31,9 +31,11 @@
 [submodule "vim/bundle/puppet"]
 	path = vim/bundle/puppet
 	url = https://github.com/puppetlabs/puppet-syntax-vim.git
+	ignore = dirty
 [submodule "vim/bundle/vim-colors-solarized"]
 	path = vim/bundle/vim-colors-solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
+	ignore = dirty
 [submodule "vim/bundle/vim-json"]
 	path = vim/bundle/vim-json
 	url = https://github.com/elzr/vim-json.git
