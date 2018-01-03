@@ -17,7 +17,6 @@ Host durandal
 Host nerv
 	HostName nerv.wired.lan
 	User jonathan
-	Ciphers arcfour
 Host wired-nerv
 	HostName thewired.rampant.io
 	User jonathan
