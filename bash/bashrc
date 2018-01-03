@@ -28,9 +28,13 @@ shopt -s cmdhist # save all lines of multi-line cmds to same histry entry
 shopt -s histappend # append to history file instead of overwrite
 
 
+prompt_func () {
+	branch=$(__git_ps1 '%s');
+	[ -e "$HOME/.iterm2/it2setkeylabel" ] && $HOME/.iterm2/it2setkeylabel \
+		set status "${branch:-none}";
+}
 # Initialize the prompt command var.
-# We'll export this later, but we may want to append to it elsewhere.
-PROMPT_COMMAND=''
+PROMPT_COMMAND="prompt_func;"
 
 
 # Source the .inputrc file if it exists
