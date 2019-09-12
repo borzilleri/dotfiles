@@ -24,9 +24,7 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 shopt -s cdspell # correct minor directory spelling errors in cd cmd.
 shopt -s checkwinsize # Refresh window size after each cmd
 shopt -s cmdhist # save all lines of multi-line cmds to same histry entry
-# shopt -s dirspell # correct minor dir spelling errors during completion
 shopt -s histappend # append to history file instead of overwrite
-
 
 prompt_func () {
 	branch=$(__git_ps1 '%s');
@@ -35,7 +33,6 @@ prompt_func () {
 }
 # Initialize the prompt command var.
 PROMPT_COMMAND="prompt_func;"
-
 
 # Source the .inputrc file if it exists
 [ -f $BASHRC_ROOT/inputrc ] && source $BASHRC_ROOT/inputrc
@@ -68,11 +65,6 @@ NODE_FILE=`uname -n`".bash"
 # probably got some additional PATHs from the includes.
 export PATH="$HOME/bin:$PATH";
 
-# Load RVM
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
 # Finally, export our shell prompt & prompt command
 export PS1
 export PROMPT_COMMAND
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

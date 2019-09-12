@@ -11,18 +11,10 @@ source "$BASHRC_ROOT/iterm2_shell_integration.bash"
 ## EXPORTS
 export CLICOLOR=1
 
-## ALIASES
-alias cdopen="drutil tray eject"
-alias cdclose="drutil tray close"
-alias pbjson="pbpaste | json_pp | pbcopy"
-
 if [[ $(which brew) && !$(brew ls --versions sshrc) ]]; then
 	_completion_loader ssh 2>/dev/null # for bash-completion >= 1.90, bash >= 4.1
 	eval $(complete -p ssh | sed 's/ ssh$/ sshrc/')
 fi
-
-[[ $(which brew) && !$(brew ls --versions docker) ]] && \
-	source "$BASHRC_ROOT/docker.bash"
 
 ## FUNCTIONS
 
