@@ -13,18 +13,3 @@ Host durandal
 	User jonathan
 	ForwardAgent yes
 
-# HOME Network aliases
-Host nerv
-	HostName nerv.wired.lan
-	User jonathan
-Host wired-nerv
-	HostName thewired.rampant.io
-	User jonathan
-	Port 51022
-Host pi
-	HostName huepi.wired.lan
-	User pi
-Host retropi
-	HostName retropi.wired.lan
-	User pi
-
