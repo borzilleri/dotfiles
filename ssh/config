@@ -5,9 +5,8 @@ GSSAPIAuthentication no
 
 # rampant.io aliases
 Host mainframe
-	Hostname mainframe.rampant.io
+	Hostname 138.197.212.35
 	User jonathan
-	Port 6028
 Host durandal
 	HostName durandal.rampant.io
 	User jonathan
