@@ -28,3 +28,4 @@ ln -sn$F "$DIR/vim/vimrc" "$HOME/.vimrc"
 
 # git
 ln -sn$F "$DIR/git/gitignore" "$HOME/.gitignore"
+cp "$DIR/git/gitconfig.tpl" "$HOME/.gitconfig"
