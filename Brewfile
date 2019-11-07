@@ -1,0 +1,8 @@
+tap "homebrew/bundle"
+tap "homebrew/core"
+brew "ack"
+brew "bash"
+brew "bash-completion"
+brew "git"
+brew "sshrc"
+brew "vim"
