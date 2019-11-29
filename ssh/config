@@ -12,3 +12,6 @@ Host durandal
 	User jonathan
 	ForwardAgent yes
 
+Host pi-clock
+	HostName pi-clock.local
+	User pi
