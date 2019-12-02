@@ -8,3 +8,6 @@
 [branch]
 	autosetuprebase = always
 
+[submodule]
+	recurse = true
+
