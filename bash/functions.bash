@@ -18,3 +18,7 @@ function marked() {
 		open -a "$APP"
 	fi
 }
+
+function op-signin() {
+	eval $(op signin borzilleri)
+}
