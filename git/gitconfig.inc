@@ -11,3 +11,5 @@
 [submodule]
 	recurse = true
 
+[core]
+	excludesFile = ~/.gitignore
