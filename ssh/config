@@ -15,3 +15,7 @@ Host durandal
 Host pi-clock
 	HostName pi-clock.local
 	User pi
+
+Host retropie
+	Hostname retropie.local
+	User pi
