@@ -19,8 +19,6 @@ export LESSCHARSET="utf-8"
 
 export WORKON_HOME=$HOME/.virtualenvs
 
-export JAVA_HOME=$(/usr/libexec/java_home)
-
 shopt -s cdspell # correct minor directory spelling errors in cd cmd.
 shopt -s checkwinsize # Refresh window size after each cmd
 shopt -s cmdhist # save all lines of multi-line cmds to same histry entry
@@ -33,9 +31,6 @@ prompt_func () {
 }
 # Initialize the prompt command var.
 PROMPT_COMMAND="prompt_func;"
-
-# Source the .inputrc file if it exists
-#[ -f $BASHRC_ROOT/inputrc ] && source $BASHRC_ROOT/inputrc
 
 # Source our functions file
 [ -f $BASHRC_ROOT/functions.bash ] && source $BASHRC_ROOT/functions.bash
