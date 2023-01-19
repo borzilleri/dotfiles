@@ -1,12 +1,13 @@
 # bashrc for OSX
-
+BREW_PREFIX="$(brew --prefix)"
 PROMPT_COMMAND=$PROMPT_COMMAND'echo -ne "\033]0;${PWD/#$HOME/~}\007";'
 
-# TODO: this doesn't seem to be working for ssh prompts?
-source "$(brew --prefix)/etc/bash_completion"
+# Set up bash completion.
+[ -f "$BREW_PREFIX/etc/profile.d/bash_completion.sh" ] &&  source "$BREW_PREFIX/etc/profile.d/bash_completion.sh"
 
 # Setup iTerm2 Shell Integration, if it exists.
-source "$BASHRC_ROOT/iterm2_shell_integration.bash"
+ITERM_INTEGRATION="$HOME/.iterm2_shell_integration.bash"
+[ -f "$ITERM_INTEGRATION" ] && source "$ITERM_INTEGRATION"
 
 ## EXPORTS
 export CLICOLOR=1
