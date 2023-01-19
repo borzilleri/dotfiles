@@ -1,5 +1,4 @@
 export MAVEN_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n
-eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$(jenv init -)"
 
 # JIRA_API_TOEN
