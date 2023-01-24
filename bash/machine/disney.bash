@@ -12,3 +12,7 @@ export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin:${HOME}/Library/Application Suppo
 #export DOCKER_HOST="unix://${HOME}/.colima/default/docker.sock"
 
 #alias jira-work="jira issue list -a$(jira me) -s'In Progress' --plain --no-headers --columns KEY"
+AWS_EXPORT_CREDS_PATH=""
+function aws-export-creds() {
+  source $AWS_EXPORT_CREDS_PATH
+}
