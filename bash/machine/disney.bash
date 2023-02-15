@@ -12,7 +12,5 @@ export GOROOT="$(brew --prefix golang)/libexec"
 export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin:${HOME}/Library/Application Support/JetBrains/Toolbox/scripts"
 
 alias jira-work="jira issue list -a$(jira me) -s'In Progress' --plain --no-headers --columns KEY"
-AWS_EXPORT_CREDS_PATH=""
-function aws-credentials-export() {
-  source $AWS_EXPORT_CREDS_PATH
-}
+
+alias ktlint="mvn antrun:run@ktlint"
