@@ -16,6 +16,15 @@ Host pi-clock
 	HostName pi-clock.local
 	User pi
 
+Host paper-frame
+	HostName paper-frame.local
+	User pi
+
 Host retropie
 	Hostname retropie.local
 	User pi
+
+Host foundry
+	Hostname foundry.rampant.io
+	User ec2-user
+	IdentityFile ~/.ssh/foundry-key.pem
