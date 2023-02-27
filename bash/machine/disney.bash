@@ -1,6 +1,8 @@
 export MAVEN_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n
 eval "$(jenv init -)"
 
+export AWSMYID_PASS="op://Disney/MyID/password"
+
 complete -C "$HOMEBREW_PREFIX/bin/aws_completer" aws
 
 # JIRA_API_TOEN
