@@ -1,8 +1,4 @@
 # IMPORTANT:
 # This is the git ignore file for *THIS DOTFILES REPO*
 # It is not a template or user file, those are in the git subdirectory.
-sdf-1.local.bash
-sdf-1.wired.lan.bash
-terminaldogma.local.bash
 .netrwhist
-sdf-3.local.bash
