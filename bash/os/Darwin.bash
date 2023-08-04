@@ -1,25 +1,27 @@
-# bashrc for OSX
+# bashrc for macOS (Darwin)
 
 # Setup homebrew environment
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Set up bash completion.
-BASH_COMPLETION="$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh"
-[ -f $BASH_COMPLETION ] && source $BASH_COMPLETION
+include "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh"
 
-# Set up git completion & prompt functions.
-BREW_GIT_PREFIX="$(brew --prefix git)"
-GIT_COMPLETION="$BREW_GIT_PREFIX/etc/bash_completion.d/git-completion.bash"
-[ -f $GIT_COMPLETION ] && source $GIT_COMPLETION
-GIT_PROMPT="$BREW_GIT_PREFIX/etc/bash_completion.d/git-prompt.sh"
-[ -f $GIT_PROMPT ] && source $GIT_PROMPT
+# Git Bash Completion
+include "$HOMEBREW_PREFIX/etc/bash_completion.d/git-completion.bash"
+# Git Prompt
+include "$HOMEBREW_PREFIX/etc/bash_completion.d/git-prompt.sh"
+
+# 1Password bash completion
+[ -n "$(command -v op)" ] && source <(op completion bash)
 
 # Setup iTerm2 Shell Integration
-ITERM_INTEGRATION="$HOME/.iterm2_shell_integration.bash"
-[ -f "$ITERM_INTEGRATION" ] && source "$ITERM_INTEGRATION"
+include "$BASHRC_ROOT/.iterm2_shell_integration.bash"
 
 ## Environment Variables
 export CLICOLOR=1
+
+# Add additional executables to our path.
+PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 ## FUNCTIONS
 logoutgui() {

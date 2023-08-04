@@ -1,5 +1,9 @@
 # bashrc functions
 
+function include {
+	[ -e "$1" ] && source "$1"
+}
+
 function parse_git_branch {
 	ref=$(git symbolic-ref HEAD 2> /dev/null) || return
 	br=${ref#refs/heads/}

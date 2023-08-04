@@ -1,64 +1,50 @@
 # .bashrc
-BASHRC_ROOT=$(dirname "$(readlink -n "${BASH_SOURCE[0]}")")
+
+# The root directory for this file.
+export BASHRC_ROOT=$(dirname "$(readlink -fn "${BASH_SOURCE[0]}")")
+
+# Root directory for the dotfiles folder.
+export DOTFILES_ROOT=$(dirname "$BASHRC_ROOT")
 
 # History Control, ignore spaces & ignore dups
-HISTCONTROL=ignoreboth
-export HISTCONTROL;
-
-# Make less friendly for non-text inputs
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)";
-
-# Set & Export various environment variables
-export BASHRC_ROOT
-export DOTFILES_ROOT=$(dirname "$BASHRC_ROOT")
+export HISTCONTROL=ignoreboth;
 export LANG="en_US.UTF-8"
 export LC_COLLATE="C"
 export PAGER="less"
 export EDITOR="vim"
 export LESSCHARSET="utf-8"
 
-export WORKON_HOME=$HOME/.virtualenvs
-
+# Shell Options
 shopt -s cdspell # correct minor directory spelling errors in cd cmd.
 shopt -s checkwinsize # Refresh window size after each cmd
 shopt -s cmdhist # save all lines of multi-line cmds to same histry entry
 shopt -s histappend # append to history file instead of overwrite
 
+# Source our base files: Functions, Color Definitions, Aliases
+source "$BASHRC_ROOT/colors.bash"
+source "$BASHRC_ROOT/functions.bash"
+source "$BASHRC_ROOT/aliases.bash"
+
+# Include OS Specific bashrc file.
+include "$BASHRC_ROOT/os/$(uname -s).bash"
+
+# Include Portable Machine-Specific bashrc
+include "$BASHRC_ROOT/machine/$(hostname).bash"
+
+# Include Non-Portable Machine Specific bashrc file
+# This is for settings that CANNOT leave a machine (keys, secrets, etc)
+include "$HOME/.local.bash"
+
+# Set additional PATHs and export it.
+# This should be done as close to the end as possible, 
+# so we can pick up path updates from includes, and only export once.
+export PATH="$HOME/bin:$PATH";
+
+# Export our shell prompt & prompt command
 prompt_func () {
 	branch=$(__git_ps1 '%s');
 	[ -e "$HOME/.iterm2/it2setkeylabel" ] && $HOME/.iterm2/it2setkeylabel \
 		set status "${branch:-none}";
 }
-# Initialize the prompt command var.
-PROMPT_COMMAND="prompt_func;"
-
-# Source our functions file
-[ -f $BASHRC_ROOT/functions.bash ] && source $BASHRC_ROOT/functions.bash
-
-# Source color definitions
-[ -f $BASHRC_ROOT/colors.bash ] && source $BASHRC_ROOT/colors.bash
-
-# Include aliases bashrc file
-[ -f $BASHRC_ROOT/aliases.bash ] && source $BASHRC_ROOT/aliases.bash
-
-# Source the virtualenvwrapper file
-[ -f /usr/local/bin/virtualenvwrapper.sh ] && source /usr/local/bin/virtualenvwrapper.sh
-
-# Include OS Specific bashrc file.
-OS_FILE=`uname -s`".bash"
-[ -f $BASHRC_ROOT/os/$OS_FILE ] && source $BASHRC_ROOT/os/$OS_FILE
-
-# Include Machine Specific bashrc file
-LOCAL_FILE="$HOME/.local.bash"
-[ -f $LOCAL_FILE ] && source $LOCAL_FILE
-
-# Set up our prompt
-PS1="\h:\W${GREEN}\$(__git_ps1 ':%s')${RESET}\$ ";
-
-# Finally set additional PATHs and export it. We do this last, as we
-# probably got some additional PATHs from the includes.
-export PATH="$HOME/bin:$PATH";
-
-# Finally, export our shell prompt & prompt command
-export PS1
-export PROMPT_COMMAND
+export PS1="\h:\W${GREEN}\$(__git_ps1 ':%s')${RESET}\$ ";
+export PROMPT_COMMAND="prompt_func;"
