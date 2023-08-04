@@ -3,28 +3,18 @@ Controlpath /tmp/ssh_mux_%h_%p_%r
 ControlPersist 1h
 GSSAPIAuthentication no
 
-# rampant.io aliases
-Host mainframe
-	Hostname 138.197.212.35
-	User jonathan
-Host durandal
-	HostName durandal.rampant.io
-	User jonathan
-	ForwardAgent yes
+Host *
+	IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 
+# The Wired LAN
 Host pi-clock
-	HostName pi-clock.local
-	User pi
+  Hostname pi-clock.local
+	User pi-clock
 
 Host paper-frame
-	HostName paper-frame.local
+  Hostname paper-frame.local
 	User pi
 
-Host retropie
-	Hostname retropie.local
-	User pi
-
-Host foundry
-	Hostname foundry.rampant.io
-	User ec2-user
-	IdentityFile ~/.ssh/foundry-key.pem
+# Tailscale
+Host caspar
+	User jonathan
