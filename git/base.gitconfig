@@ -1,0 +1,18 @@
+[core]
+	editor=vim
+	excludesfile = ~/.gitignore
+[user]
+  name = Jonathan Borzilleri
+[alias]
+	st = status -sb
+	ci = commit
+	co = checkout
+	ba = branch -a
+[branch]
+	autosetuprebase = always
+[push]
+	default = simple
+[init]
+	defaultBranch = main
+[submodule]
+  recurse = true
