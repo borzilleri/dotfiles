@@ -1,0 +1,10 @@
+[include]
+	path = base.gitconfig
+[user]
+  email = jon.m.borzilleri@disney.com
+[gpg "ssh"]
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+[url "git@github.disney.com:"]
+	insteadOf = https://github.disney.com/
+[url "git@github.bamtech.co:"]
+	insteadOf = https://github.bamtech.co/

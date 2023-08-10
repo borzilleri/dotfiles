@@ -11,7 +11,8 @@
 [branch]
 	autosetuprebase = always
 [push]
-	default = simple
+	default = current
+	autoSetupRemote = true
 [init]
 	defaultBranch = main
 [submodule]
