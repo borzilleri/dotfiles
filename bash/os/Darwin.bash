@@ -20,6 +20,8 @@ include "$BASHRC_ROOT/.iterm2_shell_integration.bash"
 ## Environment Variables
 export CLICOLOR=1
 
+alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
+
 # Add additional executables to our path.
 PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
