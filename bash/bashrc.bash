@@ -6,7 +6,7 @@ export BASHRC_ROOT=$(dirname "$(readlink -fn "${BASH_SOURCE[0]}")")
 # Root directory for the dotfiles folder.
 export DOTFILES_ROOT=$(dirname "$BASHRC_ROOT")
 
-# History Control, ignore spaces & ignore dups
+# History Control, ignore spaces & ignore dupes
 export HISTCONTROL=ignoreboth;
 export LANG="en_US.UTF-8"
 export LC_COLLATE="C"
@@ -17,7 +17,7 @@ export LESSCHARSET="utf-8"
 # Shell Options
 shopt -s cdspell # correct minor directory spelling errors in cd cmd.
 shopt -s checkwinsize # Refresh window size after each cmd
-shopt -s cmdhist # save all lines of multi-line cmds to same histry entry
+shopt -s cmdhist # save all lines of multi-line cmds to same history entry
 shopt -s histappend # append to history file instead of overwrite
 
 # Source our base files: Functions, Color Definitions, Aliases
@@ -38,7 +38,8 @@ include "$HOME/.local.bash"
 # Set additional PATHs and export it.
 # This should be done as close to the end as possible, 
 # so we can pick up path updates from includes, and only export once.
-export PATH="$HOME/bin:$PATH";
+[ -d "$HOME/.local/bin" ] && export PATH="$HOME/.local/bin:$PATH";
+[ -d "$HOME/bin" ] && PATH="$HOME/bin:$PATH";
 
 # Export our shell prompt & prompt command
 prompt_func () {

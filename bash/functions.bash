@@ -13,12 +13,3 @@ function parse_git_branch {
 		echo "("${ref#refs/heads/}")"
 	fi
 }
-
-function marked() {
-	APP="Marked 2.app"
-	if [ $1 ]; then
-		open -a "$APP" $1
-	else
-		open -a "$APP"
-	fi
-}

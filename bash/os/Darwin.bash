@@ -5,12 +5,10 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Set up bash completion.
 include "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh"
-
 # Git Bash Completion
 include "$HOMEBREW_PREFIX/etc/bash_completion.d/git-completion.bash"
 # Git Prompt
 include "$HOMEBREW_PREFIX/etc/bash_completion.d/git-prompt.sh"
-
 # 1Password bash completion
 [ -n "$(command -v op)" ] && source <(op completion bash)
 

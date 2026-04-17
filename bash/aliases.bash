@@ -4,7 +4,6 @@ alias vi='vim'
 alias l='ls -ohF'
 alias grep='grep --color=auto'
 alias gtag='git tag | sort -V'
-alias git-clean="git branch --merged master | grep -v '^[ *]*master$' | xargs git branch -d"
 alias dotfiles='cd "$DOTFILES_ROOT"'
 
 vifind() {
@@ -17,9 +16,8 @@ vifind() {
 	fi
 	find "$FIND_PATH" -iname "$FILE_NAME" -exec vim {} \;
 }
+
 mkcd() {
 	mkdir -p "$*"
 	cd "$*"
 }
-
-
