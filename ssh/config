@@ -3,18 +3,32 @@ Controlpath /tmp/ssh_mux_%h_%p_%r
 ControlPersist 1h
 GSSAPIAuthentication no
 
+Host ha
+	HostName homeassistant.sdf1.internal
+	Port 2222
+	User root
+
+Host balthasar
+	HostName balthasar
+
+Host melchior
+	HostName melchior
+
 Host *
 	IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 
 # The Wired LAN
 Host pi-clock
-  Hostname pi-clock.local
+  HostName pi-clock.local
 	User pi-clock
 
 Host paper-frame
-  Hostname paper-frame.local
+  HostName paper-frame.local
 	User pi
 
 # Tailscale
 Host caspar
 	User jonathan
+
+Host steamdeck.local
+	User deck

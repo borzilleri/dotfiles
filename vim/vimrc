@@ -36,7 +36,6 @@ set noswapfile
 set history=1000
 " Undo history size
 set undolevels=1000
-set encoding=utf-8
 
 
 " Enable autocompletion for commands
@@ -104,25 +103,11 @@ set ttyfast
 set autowrite
 set autoread
 
-" TODO: check this on OSX
-"set dictionary=/usr/share/dict/words
+" Add dictionary word completion
+set dictionary=/usr/share/dict/words
 "
 if has('macunix')
 	set t_Co=256
-endif
-
-" GUI Options
-if has('gui_running')
-	" If we're running in GTK2, use Anonymous Pro, 11pt.
-	" Otherwise, use "h13", whatever that means.
-	if has('gui_gtk2')
-		set gfn=Anonymous\ Pro\ 11
-	else
-		" MacVim UI Options
-		set fuoptions=maxvert,maxhorz
-		set gfn=Anonymous\ Pro:h14
-	endif
-	set guioptions=
 endif
 
 " Encoding

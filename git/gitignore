@@ -1,5 +1,4 @@
 *.pyc
-Icon?
 ehthumbs.db
 Thumbs.db
 .DS_Store
@@ -11,3 +10,4 @@ Thumbs.db
 .idea/
 *.iml
 *.code-workspace
+.vscode/
