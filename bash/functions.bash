@@ -1,7 +1,7 @@
 # bashrc functions
 
 function include {
-	[ -e "$1" ] && source "$1"
+	[ -s "$1" ] && source "$1"
 }
 
 function parse_git_branch {
