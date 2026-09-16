@@ -1,0 +1,13 @@
+cursor-click-to-move=true
+
+theme = "IR Black"
+
+background-opacity=0.90
+background-blur=16
+background=#000000
+
+font-family="RobotoMono Nerd Font"
+font-size=16
+font-thicken=true
+font-thicken-strength=1
+adjust-cell-height=1
