@@ -11,3 +11,7 @@ font-size=16
 font-thicken=true
 font-thicken-strength=1
 adjust-cell-height=1
+
+working-directory=home
+window-inherit-working-directory=false
+tab-inherit-working-directory=false
