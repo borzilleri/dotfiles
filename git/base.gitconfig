@@ -1,6 +1,5 @@
 [core]
 	editor=vim
-	excludesfile = ~/.gitignore
 [user]
   name = Jonathan Borzilleri
 [alias]
