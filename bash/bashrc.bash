@@ -1,45 +1,37 @@
 # .bashrc
 
+# Base helper function for including other bashrc files.
+function include {
+	[ -s "$1" ] && source "$1"
+}
+
 # The root directory for this file.
 export BASHRC_ROOT=$(dirname "$(readlink -fn "${BASH_SOURCE[0]}")")
 
 # Root directory for the dotfiles folder.
 export DOTFILES_ROOT=$(dirname "$BASHRC_ROOT")
 
-# History Control, ignore spaces & ignore dupes
-export HISTCONTROL=ignoreboth;
-export LANG="en_US.UTF-8"
-export LC_COLLATE="C"
-export PAGER="less"
-export EDITOR="vim"
-export LESSCHARSET="utf-8"
+# Local bash configuration root directory.
+export LOCAL_BASH_ROOT="${XDG_CONFIG_HOME:-$HOME/.config}/bash"
 
-# Shell Options
-shopt -s cdspell # correct minor directory spelling errors in cd cmd.
-shopt -s checkwinsize # Refresh window size after each cmd
-shopt -s cmdhist # save all lines of multi-line cmds to same history entry
-shopt -s histappend # append to history file instead of overwrite
-
-# Source our base files: Functions, Color Definitions, Aliases
-source "$BASHRC_ROOT/colors.bash"
-source "$BASHRC_ROOT/functions.bash"
-source "$BASHRC_ROOT/aliases.bash"
+# Include base bashrc files.
+include "$BASHRC_ROOT/lib/base.bash"
+include "$BASHRC_ROOT/lib/colors.bash"
+include "$BASHRC_ROOT/lib/functions.bash"
+include "$BASHRC_ROOT/lib/aliases.bash"
 
 # Include OS Specific bashrc file.
 include "$BASHRC_ROOT/os/$(uname -s).bash"
 
-# Include Portable Machine-Specific bashrc
-include "$BASHRC_ROOT/machine/$(hostname).bash"
-
 # Include Non-Portable Machine Specific bashrc file
-# This is for settings that CANNOT leave a machine (keys, secrets, etc)
-include "$HOME/.local.bash"
+# This file should include the machine-specific bashrc file,
+# as well as keys/secrets that CANNOT leave a machine.
+include "$LOCAL_BASH_ROOT/local.bash"
 
-# Set additional PATHs and export it.
-# This should be done as close to the end as possible, 
-# so we can pick up path updates from includes, and only export once.
-[ -d "$HOME/.local/bin" ] && export PATH="$HOME/.local/bin:$PATH";
-[ -d "$HOME/bin" ] && PATH="$HOME/bin:$PATH";
+# Set additional PATH entries, and export the PATH variable.
+# This should be LAST, to ensure all other includes have had a chance to modify
+# the PATH before we export it.
+include "$BASHRC_ROOT/lib/paths.bash"
 
 # Export our shell prompt & prompt command
 prompt_func () {

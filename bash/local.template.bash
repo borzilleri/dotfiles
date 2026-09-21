@@ -1,0 +1,1 @@
+include "$BASHRC_ROOT/machine/{machine}.bash"
