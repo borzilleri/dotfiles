@@ -45,4 +45,4 @@ with open(filename, 'r') as f:
         heapq.heappush(q, (diff, text))
 
 for diff, text in heapq.nlargest(n, q):
-    print float(diff) / 1000000000, 's:', text
+    print(float(diff) / 1000000000, 's:', text)
