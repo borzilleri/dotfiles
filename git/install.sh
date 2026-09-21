@@ -4,9 +4,9 @@ set -euo pipefail
 SRC_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 CHOICE="${1:-}"
-while [[ "$CHOICE" != "disney" && "$CHOICE" != "sdf1" ]]; do
+while [[ "$CHOICE" != "disney" && "$CHOICE" != "sdf-1" ]]; do
   if [[ -n "$CHOICE" ]]; then echo "Invalid choice: $CHOICE" >&2; fi
-  read -r -p "Which config? (disney/sdf1): " CHOICE || { echo "No choice given." >&2; exit 1; }
+  read -r -p "Which config? (disney/sdf-1): " CHOICE || { echo "No choice given." >&2; exit 1; }
 done
 
 DEST_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/git"
