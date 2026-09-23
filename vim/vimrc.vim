@@ -1,5 +1,10 @@
 " --- Basic Settings
 
+" Set the path to this vimrc file and update the runtime path accordingly.
+let g:vimrc = resolve(expand('<sfile>:p'))
+let s:vimrcPath = fnamemodify(g:vimrc, ':h')
+let &runtimepath = s:vimrcPath.','.$VIMRUNTIME
+
 " Disable compatibility with vi which can cause unexpected issues.
 set nocompatible
 
