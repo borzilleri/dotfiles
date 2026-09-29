@@ -15,3 +15,5 @@ adjust-cell-height=1
 working-directory=home
 window-inherit-working-directory=false
 tab-inherit-working-directory=false
+
+shell-integration-features = sudo, ssh-env, ssh-terminfo
