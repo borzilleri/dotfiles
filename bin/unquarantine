@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Remove the com.apple.quarantine extended attribute from a file.
+# Usage: unquarantine <file>
+
+set -euo pipefail
+
+if [[ $# -ne 1 ]]; then
+  echo "Usage: $(basename "$0") <file>" >&2
+  exit 1
+fi
+
+target="$1"
+
+if [[ ! -e "$target" ]]; then
+  echo "Error: '$target' does not exist" >&2
+  exit 1
+fi
+
+xattr -d com.apple.quarantine "$target"
