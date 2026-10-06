@@ -1,16 +1,28 @@
 # dotfiles
 
-Install with a machine name:
+Install, choosing components interactively:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/borzilleri/dotfiles/master/install.sh | bash -s -- sdf-1
+curl -fsSL https://raw.githubusercontent.com/borzilleri/dotfiles/main/install.sh | bash -s -- --machine sdf-1
 ```
 
-Or without, to be prompted:
+Requires `git`. The repo is cloned to `$XDG_CONFIG_HOME/dotfiles` (or `~/.config/dotfiles`).
+Valid machine names are listed in `machines.txt`. If `--machine` is omitted you'll be prompted
+once (blank for none); pass `--machine NAME` on any later run to set or change it.
 
-```bash
-curl -fsSL https://raw.githubusercontent.com/borzilleri/dotfiles/master/install.sh | bash
+## Usage
+
+```
+install.sh [--machine NAME] [COMMAND] [COMPONENT...]
+
+  (none)        Prompt for each component not yet installed or skipped
+  install C...  Install components (and mark them installed)
+  skip C...     Mark components as skipped
+  update        Pull the repo, re-install installed components, then prompt for any new ones
+  status        Show the state of every component
 ```
 
-Requires `git`. The repo is cloned to `$XDG_CONFIG_HOME/dotfiles` (or `~/.config/dotfiles`),
-then each sub-directory's `install.sh` is run. Valid machine names are listed in `machines.txt`.
+Components are the top-level directories with an `install.sh` (bash, ghostty, git, home.rc, vim).
+
+Installed/skipped state and the chosen machine are kept in
+`$XDG_STATE_HOME/dotfiles/manifest` (or `~/.local/state/dotfiles/manifest`).

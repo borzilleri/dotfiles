@@ -1,2 +1,2 @@
 [include]
-	path={pwd}/{choice}.gitconfig
+	path={pwd}/{machine}.gitconfig
