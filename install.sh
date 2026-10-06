@@ -38,7 +38,7 @@ Usage: install.sh [--machine NAME] [COMMAND] [COMPONENT...]
 
 Commands:
   (none)        Prompt for each component not yet installed or skipped
-  install C...  Install components (and mark them installed)
+  install [C...]  Install components, or all if none given
   skip C...     Mark components as skipped
   update        Pull the repo, re-install installed components,
                 then prompt for any new ones
@@ -193,7 +193,8 @@ for name in ${NAMES[@]+"${NAMES[@]}"}; do
 done
 
 case "$CMD" in
-  install | skip) [[ ${#NAMES[@]} -gt 0 ]] || die "$CMD: no components given" ;;
+  skip) [[ ${#NAMES[@]} -gt 0 ]] || die "$CMD: no components given" ;;
+  install) ;;
   *) [[ ${#NAMES[@]} -eq 0 ]] || die "${CMD:-install.sh}: takes no components" ;;
 esac
 
@@ -204,8 +205,9 @@ case "$CMD" in
     prompt_unrecorded
     ;;
   install)
+    if [[ ${#NAMES[@]} -eq 0 ]]; then NAMES=(${COMPONENTS[@]+"${COMPONENTS[@]}"}); fi
     resolve_machine
-    for name in "${NAMES[@]}"; do run_component "$name"; done
+    for name in ${NAMES[@]+"${NAMES[@]}"}; do run_component "$name"; done
     ;;
   skip)
     for name in "${NAMES[@]}"; do skip_component "$name"; done
